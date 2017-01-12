@@ -4,21 +4,21 @@
         <meta name="description" content="A fully featured admin theme which can be used to build CRM, CMS, etc.">
         <meta name="author" content="Coderthemes">
 
-        <link rel="shortcut icon" href="assets/images/favicon_1.ico">
+        <link rel="shortcut icon" href="<?php echo base_url();?>assets/images/favicon_1.ico">
 
         <title>Saya</title>
 
         <!--Morris Chart CSS -->
-	<link rel="stylesheet" href="<?php echo base_url();?>/assets/plugins/morris/morris.css">
+	<link rel="stylesheet" href="<?php echo base_url();?>assets/plugins/morris/morris.css">
 
-        <link href="<?php echo base_url();?>/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-        <link href="<?php echo base_url();?>/assets/css/core.css" rel="stylesheet" type="text/css" />
-        <link href="<?php echo base_url();?>/assets/css/components.css" rel="stylesheet" type="text/css" />
-        <link href="<?php echo base_url();?>/assets/css/icons.css" rel="stylesheet" type="text/css" />
-        <link href="<?php echo base_url();?>/assets/css/pages.css" rel="stylesheet" type="text/css" />
-        <link href="<?php echo base_url();?>/assets/css/responsive.css" rel="stylesheet" type="text/css" />
+        <link href="<?php echo base_url();?>assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="<?php echo base_url();?>assets/css/core.css" rel="stylesheet" type="text/css" />
+        <link href="<?php echo base_url();?>assets/css/components.css" rel="stylesheet" type="text/css" />
+        <link href="<?php echo base_url();?>assets/css/icons.css" rel="stylesheet" type="text/css" />
+        <link href="<?php echo base_url();?>assets/css/pages.css" rel="stylesheet" type="text/css" />
+        <link href="<?php echo base_url();?>assets/css/responsive.css" rel="stylesheet" type="text/css" />
         <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-       <link rel="stylesheet" href="/resources/demos/style.css">
+       <link rel="stylesheet" href="<?php echo base_url();?>resources/demos/style.css">
         <!-- HTML5 Shiv and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
@@ -26,9 +26,9 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
         <![endif]-->
 
-        <script src="<?php echo base_url();?>/assets/js/modernizr.min.js"></script>
-        <script src="<?php echo base_url();?>/assets/js/jquery.min.js"></script>
-        <script src="<?php echo base_url();?>/assets/js/bootstrap.min.js"></script>
+        <script src="<?php echo base_url();?>assets/js/modernizr.min.js"></script>
+        <script src="<?php echo base_url();?>assets/js/jquery.min.js"></script>
+        <script src="<?php echo base_url();?>assets/js/bootstrap.min.js"></script>
         <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
         
@@ -177,7 +177,7 @@
                                     <a href="#" class="right-bar-toggle waves-effect waves-light"><i class="icon-settings"></i></a>
                                 </li>
                                 <li class="dropdown">
-                                    <a href="" class="dropdown-toggle profile" data-toggle="dropdown" aria-expanded="true"><img src="assets/images/users/avatar-1.jpg" alt="user-img" class="img-circle"> </a>
+                                    <a href="" class="dropdown-toggle profile" data-toggle="dropdown" aria-expanded="true"><img src="<?php echo base_url();?>assets/images/users/avatar-1.jpg" alt="user-img" class="img-circle"> </a>
                                     <ul class="dropdown-menu">
                                         <li><a href="javascript:void(0)"><i class="ti-user m-r-5"></i> Profile</a></li>
                                         <li><a href="javascript:void(0)"><i class="ti-settings m-r-5"></i> Settings</a></li>
