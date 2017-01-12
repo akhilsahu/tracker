@@ -84,6 +84,15 @@
   	$this->db->delete("tab_clients");
     }
 
+    public function record($user)
+    {
+       
+        $id=$user[0]['int_user_id'];
+       // echo $id;exit;
+        $query=$this->db->query("select * from tab_users where int_user_id=$id");
+        return $query->row_array();
+//        return $query;
+    }
  }
 
 

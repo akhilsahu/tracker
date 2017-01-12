@@ -6,7 +6,7 @@
 
         <link rel="shortcut icon" href="<?php echo base_url();?>assets/images/favicon_1.ico">
 
-        <title>Saya</title>
+        <title>Saaya</title>
 
         <!--Morris Chart CSS -->
 	<link rel="stylesheet" href="<?php echo base_url();?>assets/plugins/morris/morris.css">
@@ -44,7 +44,7 @@
                 <!-- LOGO -->
                 <div class="topbar-left">
                     <div class="text-center">
-                        <a href="index.html" class="logo"><i class="icon-magnet icon-c-logo"></i><span>SaYa</span></a>
+                        <a href="index.html" class="logo"><i class="icon-magnet icon-c-logo"></i><span>SaaYa</span></a>
                     </div>
                 </div>
 
@@ -179,7 +179,7 @@
                                 <li class="dropdown">
                                     <a href="" class="dropdown-toggle profile" data-toggle="dropdown" aria-expanded="true"><img src="<?php echo base_url();?>assets/images/users/avatar-1.jpg" alt="user-img" class="img-circle"> </a>
                                     <ul class="dropdown-menu">
-                                        <li><a href="javascript:void(0)"><i class="ti-user m-r-5"></i> Profile</a></li>
+                                        <li><a href="<?php echo site_url('welcome/profile');?>"><i class="ti-user m-r-5"></i> Profile</a></li>
                                         <li><a href="javascript:void(0)"><i class="ti-settings m-r-5"></i> Settings</a></li>
                                         <li><a href="javascript:void(0)"><i class="ti-lock m-r-5"></i> Lock screen</a></li>
                                         <li><a href="<?php echo site_url().'/Client/logout/';?>"><i class="ti-power-off m-r-5"></i> Logout</a></li>

@@ -2,6 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Welcome extends CI_Controller {
+    //$user=array();
 
 	/**
 	 * Index Page for this controller.
@@ -35,7 +36,8 @@ class Welcome extends CI_Controller {
    $this->load->model('Login_Model');
    $valid_login = $this->Login_Model->login_valid($username,$password);
    if($valid_login){
-   	   $this->session->set_userdata('user',$valid_login);
+   	$this->session->set_userdata('user',$valid_login);
+          // echo $this->user;exit;
 	   $data['load_page']='welcome_message';
    	
 		$this->load->view('admin/view_page',$data);
@@ -45,4 +47,13 @@ class Welcome extends CI_Controller {
    }
 
 	}
+        public function profile()
+    {
+           $user= $this->session->userdata('user');
+           // print_r($user);exit;
+        $this->load->model('login_model');
+        $record["load_page"]='profile';
+       $record['user']= $this->login_model->record($user);
+       $this->load->view('admin/view_page',$record);
+    }
 }
