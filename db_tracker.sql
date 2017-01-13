@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 11, 2017 at 10:21 AM
--- Server version: 10.1.19-MariaDB
--- PHP Version: 5.6.28
+-- Generation Time: Jan 13, 2017 at 06:33 AM
+-- Server version: 10.1.13-MariaDB
+-- PHP Version: 5.5.37
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -29,8 +29,12 @@ SET time_zone = "+00:00";
 CREATE TABLE `tab_clients` (
   `int_client_id` int(11) NOT NULL,
   `txt_client_name` varchar(50) NOT NULL,
+  `txt_client_email` varchar(225) NOT NULL,
+  `txt_client_phone` varchar(225) NOT NULL,
+  `txt_client_gender` varchar(100) NOT NULL,
+  `txt_client_address` varchar(225) NOT NULL,
+  `txt_password` varchar(225) NOT NULL,
   `txt_plan_of_client` varchar(50) NOT NULL,
-  `txt_client_type` varchar(50) NOT NULL,
   `int_no_of_members` int(11) NOT NULL,
   `int_is_deleted` tinyint(11) DEFAULT NULL,
   `txt_added_by` int(11) NOT NULL,
@@ -41,11 +45,8 @@ CREATE TABLE `tab_clients` (
 -- Dumping data for table `tab_clients`
 --
 
-INSERT INTO `tab_clients` (`int_client_id`, `txt_client_name`, `txt_plan_of_client`, `txt_client_type`, `int_no_of_members`, `int_is_deleted`, `txt_added_by`, `dt_date`) VALUES
-(1, 'Check', '1', '1', 12, NULL, 0, '0000-00-00'),
-(2, 'Test2-updated', '1', '3', 12, NULL, 1, '2017-01-10'),
-(3, 'Saya', '1', '2', 1, NULL, 1, '0000-00-00'),
-(4, 'Name', '1', '2', 123, NULL, 1, '2017-01-17');
+INSERT INTO `tab_clients` (`int_client_id`, `txt_client_name`, `txt_client_email`, `txt_client_phone`, `txt_client_gender`, `txt_client_address`, `txt_password`, `txt_plan_of_client`, `int_no_of_members`, `int_is_deleted`, `txt_added_by`, `dt_date`) VALUES
+(1, 'Mahesh Mansarovar', 'mahesh@gmail.com', '8867886700', 'male', 'alambagh lko', '11111', '5', 6, NULL, 1, '2017-01-18');
 
 -- --------------------------------------------------------
 
@@ -172,12 +173,8 @@ CREATE TABLE `tab_users` (
   `txt_user_name` varchar(50) NOT NULL,
   `txt_password` varchar(50) NOT NULL,
   `txt_user_email` varchar(50) NOT NULL,
-  `txt_user_phone` varchar(50) NOT NULL,
   `int_group_id` int(11) NOT NULL,
-  `txt_gender` varchar(50) NOT NULL,
-  `txt_address` varchar(200) NOT NULL,
   `int_is_deleted` int(11) NOT NULL DEFAULT '0',
-  `txt_added_by` varchar(50) NOT NULL,
   `dt_date` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -185,8 +182,9 @@ CREATE TABLE `tab_users` (
 -- Dumping data for table `tab_users`
 --
 
-INSERT INTO `tab_users` (`int_user_id`, `txt_user_name`, `txt_password`, `txt_user_email`, `txt_user_phone`, `int_group_id`, `txt_gender`, `txt_address`, `int_is_deleted`, `txt_added_by`, `dt_date`) VALUES
-(1, 'admin_user', 'admin_user', '', '', 2, '', '', 0, '', '0000-00-00');
+INSERT INTO `tab_users` (`int_user_id`, `txt_user_name`, `txt_password`, `txt_user_email`, `int_group_id`, `int_is_deleted`, `dt_date`) VALUES
+(1, 'admin_user', 'admin_user', '', 2, 0, '0000-00-00'),
+(2, 'Mahesh Mansarovar', '111111', 'mahesh@gmail.com', 3, 0, '2017-01-18');
 
 -- --------------------------------------------------------
 
@@ -274,7 +272,7 @@ ALTER TABLE `tab_user_group`
 -- AUTO_INCREMENT for table `tab_clients`
 --
 ALTER TABLE `tab_clients`
-  MODIFY `int_client_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `int_client_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `tab_client_details`
 --
@@ -309,7 +307,7 @@ ALTER TABLE `tab_tracking`
 -- AUTO_INCREMENT for table `tab_users`
 --
 ALTER TABLE `tab_users`
-  MODIFY `int_user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `int_user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `tab_user_group`
 --
