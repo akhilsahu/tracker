@@ -58,9 +58,16 @@
 		{
 		 $rand .= $seed[$k];
 		}
+		$seed1 = str_split('0123456789'); 
+		shuffle($seed1); 
+		$username = '';
+		foreach (array_rand($seed1, 4) as $k)
+		{
+		 $username .= $seed1[$k];
+		}
 		
         $data1 = array(
-                   'txt_user_name' => $this->input->post('client_name'),
+                   'txt_user_name' => substr($this->input->post('client_name'),0,4)."_".$username,
             // autogenerate password will be inserted in database as well as send to mail
                    'txt_password' =>$rand, /*$this->input->post('plan_of_client')*/
             'txt_user_email' => $this->input->post('txt_client_email'),
