@@ -17,7 +17,7 @@
 	                                            <div class="form-group"> <div class="form-group">
 	                                                <label class="col-sm-2 control-label">Type</label>
 	                                                <div class="col-sm-7">
-	                                                    <select class="form-control" name="txt_type">        
+                                                            <select class="form-control" name="txt_type">        <option  value="0">Select</option>  
 														<option value="Personal">Personal</option>
 	                                                        <option value="Commercial">Commercial</option>
 	                                                    </select>
@@ -107,7 +107,18 @@
 												  } );
 												  </script>
 												    </div>
+<<<<<<< HEAD
 													
+=======
+													<div class="form-group">
+	                                             
+												       
+												        <div class="col-md-3">
+			                                                <?php echo form_error('date');?>
+			                                            </div>
+												       
+												    </div>
+>>>>>>> 1e94cf0feeedf1f256c45eeffcff7ad182fec6b6
 
 	                                             <div class="form-group">
                                                  <div class="col-lg-10 col-lg-offset-2">
