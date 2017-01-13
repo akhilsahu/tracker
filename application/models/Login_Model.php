@@ -6,7 +6,8 @@
   	$q=$this->db->where(['txt_user_name'=>$username,'txt_password'=>$password])
   	            ->get('tab_users');
   	            if($q->num_rows()){
-  	            	return $q->result_array();
+  	            	return $abc=$q->result_array();
+					//print_r($abc);exit;
   	            }else{
   	            	return FALSE;
   	            }

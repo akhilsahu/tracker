@@ -18,7 +18,7 @@ class Client extends CI_Controller{
 	$this->load->view('admin/view_page',$data);
 }
 
-function insert_client(){
+	function insert_client(){
 
 	$this->load->library('form_validation');
 

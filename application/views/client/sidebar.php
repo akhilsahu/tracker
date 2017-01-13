@@ -9,22 +9,22 @@
                             <li class="text-muted menu-title"></li>
 
                             <li>
-                                <a href="" class="waves-effect active"><i class="ti-home"></i> </a>
+                                <a href="<?php echo site_url('Member/add_member') ?>" class="waves-effect active"><i class="ti-home"></i> Add Member</a>
                                 
                             </li>
 
                             <li>
-                                <a href="" class="waves-effect"><i class="ti-paint-bucket"></i> </a>
+                                <a href="<?php echo site_url('Member/view_member') ?>" class="waves-effect"><i class="ti-paint-bucket"></i>View Member </a>
                                
                             </li>
 
                             <li >
-                                <a href="" class="waves-effect"><i class="ti-light-bulb"></i>  </a>
+                                <a href="<?php echo site_url('Device/add_device') ?>" class="waves-effect"><i class="ti-light-bulb"></i> Add Device </a>
                                
                             </li>
 
                             <li >
-                                <a href="" class="waves-effect"><i class="ti-spray"></i> </a>
+                                <a href="<?php echo site_url('Device/view_device') ?>" class="waves-effect"><i class="ti-spray"></i> View Device</a>
                                 
                             </li>
 

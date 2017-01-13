@@ -107,22 +107,7 @@
 												  } );
 												  </script>
 												    </div>
-													<div class="form-group">
-	                                             <label class="col-md-2 control-label">Logo</label>
-												        <div class='col-md-7'>
-												            <div class="form-group">
-												                <div class='input-group'>
-												                    <input type='file' class="form-control" name="file" onchange="readURL(this);" />
-																	<img alt="logo" class="form-control" name="file" id="image1" height="200px" width="200px" />
-												                   
-												                </div>												           
-												        	</div>
-												        </div>
-												        <div class="col-md-3">
-			                                                <?php echo form_error('date');?>
-			                                            </div>
-												       
-												    </div>
+													
 
 	                                             <div class="form-group">
                                                  <div class="col-lg-10 col-lg-offset-2">
