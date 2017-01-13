@@ -1,7 +1,4 @@
 <?php
-fjhgfhfvgh
-nmjbhygftyh
-bvhggggggfh
 /**
  * CodeIgniter
  *
