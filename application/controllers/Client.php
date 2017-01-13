@@ -26,14 +26,15 @@ function insert_client(){
     $this->form_validation->set_rules('plan_of_client', 'Plan Of Client', 'required');
     $this->form_validation->set_rules('txt_client_email', 'Client Email', 'required');
 	$this->form_validation->set_rules('client_phone', 'Client Phone', 'required');
-	$this->form_validation->set_rules('txt_gender', 'Client Gender', 'required');
-	$this->form_validation->set_rules('txt_client_address', 'Client Addess', 'required');
+	//$this->form_validation->set_rules('txt_gender', 'Client Gender', 'required');
+	//$this->form_validation->set_rules('txt_client_address', 'Client Addess', 'required');
     $this->form_validation->set_rules('no_of_member', 'Number Of Member', 'required');
     $this->form_validation->set_rules('date', 'Date', 'required');
     $this->form_validation->set_error_delimiters("<p class='text-danger'>","</p>");
    
     if ($this->form_validation->run() == TRUE)
                 {
+					//die();
                 	$this->Login_Model->insert_client_data($this->user[0]['int_user_id']);
 
                }
