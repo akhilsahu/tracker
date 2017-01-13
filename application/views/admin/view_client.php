@@ -32,8 +32,11 @@
 									<thead>
 										<th>Client Name </th>
 										<th> Plan Of Client</th>
-										<th>Client type </th>
-										<th>No Of Members </th>
+										<th>Email </th>
+										<th>Phone Number</th>
+										<th>Gender</th>
+										<th>Address</th>
+										<th>No of member</th>
 										<th> Date</th>
 									</thead>
 									<tbody>
@@ -41,8 +44,10 @@
 									foreach($client_list as $each){ ?>
 									<tr id="delrow<?php echo $each['int_client_id']?>">
 									<td><?php echo $each['txt_client_name']; ?></td>
-									<td><?php echo $each['txt_plan_of_client']; ?></td>
-									<td><?php echo $each['txt_client_type']; ?></td>
+									<td><?php echo $each['txt_client_email']; ?></td>
+									<td><?php echo $each['txt_client_phone']; ?></td>
+									<td><?php echo $each['txt_client_gender']; ?></td>
+									<td><?php echo $each['txt_client_address']; ?></td>
 									<td><?php echo $each['int_no_of_members']; ?></td>
 									<td><?php echo $each['dt_date']; ?></td>
 									<td><a href="<?php echo site_url().'/Client/edit_client/'.$each['int_client_id'] ?>" class="btn btn-primary">Edit</a> <a href="javascript:void(0)" class="btn btn-primary" onclick="delete_record(<?php echo $each['int_client_id'] ;?>)">Delete</a></td>

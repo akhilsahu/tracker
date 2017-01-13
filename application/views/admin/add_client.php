@@ -38,24 +38,51 @@
 	                                              <div class="col-md-3">
 	                                                <?php echo form_error('plan_of_client');?>
 	                                                </div>
+													
 	                                            </div>
-	                                             <div class="form-group">
-	                                                <label class="col-sm-2 control-label">Client Type</label>
+	                                                  <div class="form-group">
+	                                                <label class="col-md-2 control-label">Email</label>
+	                                                <div class="col-md-7">
+	                                                    <input type="text" class="form-control" value="" name="txt_client_email">
+	                                                </div>
+	                                            	<div class="col-md-3">
+	                                                <?php echo form_error('txt_client_email');?>
+	                                                </div>
+	                                            </div>  
+												 <div class="form-group">
+	                                                <label class="col-md-2 control-label">Phone</label>
+	                                                <div class="col-md-7">
+	                                                    <input type="text" class="form-control" value="" name="client_phone">
+	                                                </div>
+	                                            	<div class="col-md-3">
+	                                                <?php echo form_error('client_phone');?>
+	                                                </div>
+	                                            </div>  
+	                                                 <div class="form-group">
+	                                                <label class="col-sm-2 control-label">Gender</label>
 	                                                <div class="col-sm-7">
-	                                                    <select class="form-control" name="client_type">
-	                                                       
-	                                                        <?php foreach($client_type_val as $each){ ?>
-                           <option value="<?php echo $each['int_group_id']; ?>"><?php echo $each['txt_user_group']; ?></option>
-    <?php } ?>
+	                                                    <select class="form-control" name="txt_gender">        
+														<option value="male">Male</option>
+	                                                        <option value="female">Female</option>
 	                                                    </select>
 	                                                   
 	                                                </div>
-	                                            <div class="col-md-3">
-	                                                <?php echo form_error('client_type');?>
+	                                              <div class="col-md-3">
+	                                                <?php echo form_error('txt_gender');?>
 	                                                </div>
+													
 	                                            </div>
-	                                                                     
-	                                             <div class="form-group">
+												 <div class="form-group">
+	                                                <label class="col-md-2 control-label">Address</label>
+	                                                <div class="col-md-7">
+	                                                    <input type="text" class="form-control" value="" name="txt_client_address">
+	                                                </div>
+	                                            	<div class="col-md-3">
+	                                                <?php echo form_error('txt_client_address');?>
+	                                                </div>
+	                                            </div> 
+													 
+												<div class="form-group">
 	                                                <label class="col-md-2 control-label">No. Of Member</label>
 	                                                <div class="col-md-7">
 	                                                    <input type="text" class="form-control" value="" name="no_of_member">
@@ -63,7 +90,9 @@
 	                                            	<div class="col-md-3">
 	                                                <?php echo form_error('no_of_member');?>
 	                                                </div>
-	                                            </div>                                                                       
+	                                            </div>
+																								
+	                                                                                                               
 	                                             
 	                                             <div class="form-group">
 	                                             <label class="col-md-2 control-label">Date</label>

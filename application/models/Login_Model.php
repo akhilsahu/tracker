@@ -2,7 +2,7 @@
  class Login_Model extends CI_Model{
 
   public function login_valid($username,$password){
-  	$this->db->select('int_user_id,txt_user_name');
+  	$this->db->select('int_user_id,txt_user_name,int_group_id');
   	$q=$this->db->where(['txt_user_name'=>$username,'txt_password'=>$password])
   	            ->get('tab_users');
   	            if($q->num_rows()){
@@ -41,13 +41,31 @@
   	$data = array(
                    'txt_client_name' => $this->input->post('client_name'),
                    'txt_plan_of_client' => $this->input->post('plan_of_client'),
-                   'txt_client_type' => $this->input->post('client_type'),
-                    'int_no_of_members' => $this->input->post('no_of_member'),
+				   'txt_client_email' => $this->input->post('txt_client_email'),
+				   'txt_client_phone' => $this->input->post('client_phone'),
+				   'txt_client_gender' => $this->input->post('txt_gender'),
+				   'txt_client_address' => $this->input->post('txt_client_address'),
+				   'txt_password' => '11111',
+				   'int_no_of_members' => $this->input->post('no_of_member'),
                     'txt_added_by' => $int_user_id,
+                    'dt_date' => date('Y-m-d',strtotime($this->input->post('date'))));
+  	$this->db->insert("tab_clients",$data);
+	
+        $data1 = array(
+                   'txt_user_name' => $this->input->post('client_name'),
+            // autogenerate password will be inserted in database as well as send to mail
+                   'txt_password' =>'111111' /*$this->input->post('plan_of_client')*/,
+            'txt_user_email' => $this->input->post('txt_client_email'),
+			
+                   'int_group_id' => '3',
+            
+					
+                   
                     'dt_date' => date('Y-m-d',strtotime($this->input->post('date'))));
   	
   	
-  	$this->db->insert("tab_clients",$data);
+  	$this->db->insert("tab_users",$data1);
+        
   	            
   	           
   }

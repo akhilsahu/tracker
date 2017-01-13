@@ -23,10 +23,10 @@ class Welcome extends CI_Controller {
 	{
 		$this->load->helper('form');
 
-		$this->load->view('admin/user_login');
+		$this->load->view('user_login');
 
 		/*$data['page']='welcome_message';
-		$this->load->view('page',$data);*/
+		$this->load->view('view_page',$data);*/
 	}
 
 	public function admin_login(){
@@ -37,17 +37,18 @@ class Welcome extends CI_Controller {
    $valid_login = $this->Login_Model->login_valid($username,$password);
    if($valid_login){
    	$this->session->set_userdata('user',$valid_login);
-          // echo $this->user;exit;
+	$data=$this->session->userdata('user',$valid_login);
 	   $data['load_page']='welcome_message';
-   	
+	  // print_r($data);exit;
 		$this->load->view('admin/view_page',$data);
+		
    }else{
    	//echo "usernmae & password wrong ";
-    $this->load->view('admin/user_login');
+    $this->load->view('user_login');
    }
 
 	}
-        public function profile()
+       /* public function profile()
     {
            $user= $this->session->userdata('user');
            // print_r($user);exit;
@@ -55,5 +56,5 @@ class Welcome extends CI_Controller {
         $record["load_page"]='profile';
        $record['user']= $this->login_model->record($user);
        $this->load->view('admin/view_page',$record);
-    }
+    }*/
 }
