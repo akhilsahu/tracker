@@ -1,5 +1,4 @@
 ========== Left Sidebar Start ========== -->
-
             <div class="left side-menu">
                 <div class="sidebar-inner slimscrollleft">
                     <!--- Divider -->
@@ -33,6 +32,6 @@
                     </div>
                     <div class="clearfix"></div>
                 </div>
-            </div>
+            </div>         
             <!-- Left Sidebar End-->
             <div class="content-page">

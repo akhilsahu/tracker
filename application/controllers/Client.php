@@ -12,7 +12,7 @@ class Client extends CI_Controller{
     public function add(){
 	//echo "call the client";
     $data['plan_of_client_val'] = $this->Login_Model->plan_of_client();
-    $data['client_type_val'] = $this->Login_Model->client_type();
+    //$data['client_type_val'] = $this->Login_Model->client_type();
         
 	$data['load_page']='add_client';
 	$this->load->view('admin/view_page',$data);
@@ -24,7 +24,10 @@ function insert_client(){
 
     $this->form_validation->set_rules('client_name', 'Client Name', 'required');
     $this->form_validation->set_rules('plan_of_client', 'Plan Of Client', 'required');
-    $this->form_validation->set_rules('client_type', 'Client Type', 'required');
+    $this->form_validation->set_rules('txt_client_email', 'Client Email', 'required');
+	$this->form_validation->set_rules('client_phone', 'Client Phone', 'required');
+	$this->form_validation->set_rules('txt_gender', 'Client Gender', 'required');
+	$this->form_validation->set_rules('txt_client_address', 'Client Addess', 'required');
     $this->form_validation->set_rules('no_of_member', 'Number Of Member', 'required');
     $this->form_validation->set_rules('date', 'Date', 'required');
     $this->form_validation->set_error_delimiters("<p class='text-danger'>","</p>");
@@ -42,7 +45,7 @@ function insert_client(){
 
 }
 
-function update_client(){
+	function update_client(){
 	$this->load->library('form_validation');
     $this->form_validation->set_rules('client_name', 'Client Name', 'required');
     $this->form_validation->set_rules('plan_of_client', 'Plan Of Client', 'required');

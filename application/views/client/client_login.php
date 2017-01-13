@@ -39,7 +39,7 @@
 
 
             <div class="panel-body">
-            <form class="form-horizontal m-t-20" action="<?php echo site_url();?>/Welcome/admin_login" method="post">
+            <form class="form-horizontal m-t-20" action="<?php echo site_url();?>/Welcome/client_login_valid" method="post">
                 
                 <div class="form-group ">
                     <div class="col-xs-12">
