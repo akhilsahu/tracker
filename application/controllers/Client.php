@@ -36,6 +36,7 @@ function insert_client(){
                 {
 					//die();
                 	$this->Login_Model->insert_client_data($this->user[0]['int_user_id']);
+					redirect('/Client/list_clients','refersh');
 
                }
                 else

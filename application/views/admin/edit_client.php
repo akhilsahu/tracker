@@ -59,7 +59,7 @@
 	                                             <div class="form-group">
 	                                                <label class="col-md-4 control-label">No. Of Member</label>
 	                                                <div class="col-md-8">
-	                                                    <input type="text" class="form-control" value="<?php echo $edit_clients['int_no_of_members']?>" name="no_of_member">
+	                                                    <input type="text" class="form-control" value="<?php echo $edit_clients['txt_no_of_member']?>" name="no_of_member">
 	                                                </div>
 	                                            </div>                                                                       
 	                                             <div class="col-md-6">

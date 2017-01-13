@@ -24,7 +24,7 @@
 		<div class="row">
                         	<div class="col-sm-12">
                         		<div class="card-box">
-                        			<h4 class="m-t-0 header-title"><b>View Client</b></h4>
+                                            <center><h4 class="m-t-0 header-title"><b>Our Clients</b></h4></center>
                         			<!-- <p class="text-muted m-b-30 font-13">
 										Most common form control, text-based input fields. Includes support for all HTML5 types: <code>text</code>, <code>password</code>, <code>datetime</code>, <code>datetime-local</code>, <code>date</code>, <code>month</code>, <code>time</code>, <code>week</code>, <code>number</code>, <code>email</code>, <code>url</code>, <code>search</code>, <code>tel</code>, and <code>color</code>.
 									</p> -->
@@ -34,8 +34,6 @@
 										<th> Plan Of Client</th>
 										<th>Email </th>
 										<th>Phone Number</th>
-										<th>Gender</th>
-										<th>Address</th>
 										<th>No of member</th>
 										<th> Date</th>
 									</thead>
@@ -44,11 +42,10 @@
 									foreach($client_list as $each){ ?>
 									<tr id="delrow<?php echo $each['int_client_id']?>">
 									<td><?php echo $each['txt_client_name']; ?></td>
+									<td><?php echo $each['txt_plan_of_client']; ?></td>
 									<td><?php echo $each['txt_client_email']; ?></td>
-									<td><?php echo $each['txt_client_phone']; ?></td>
-									<td><?php echo $each['txt_client_gender']; ?></td>
-									<td><?php echo $each['txt_client_address']; ?></td>
-									<td><?php echo $each['int_no_of_members']; ?></td>
+									<td><?php echo $each['txt_mobile']; ?></td>
+									<td><?php echo $each['txt_no_of_member']; ?></td>
 									<td><?php echo $each['dt_date']; ?></td>
 									<td><a href="<?php echo site_url().'/Client/edit_client/'.$each['int_client_id'] ?>" class="btn btn-primary">Edit</a> <a href="javascript:void(0)" class="btn btn-primary" onclick="delete_record(<?php echo $each['int_client_id'] ;?>)">Delete</a></td>
 									</tr>

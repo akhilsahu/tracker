@@ -48,7 +48,7 @@ class Welcome extends CI_Controller {
    }
 
 	}
-       /* public function profile()
+      /* public function profile()
     {
            $user= $this->session->userdata('user');
            // print_r($user);exit;

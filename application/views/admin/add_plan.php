@@ -25,7 +25,7 @@
 	                                             <div class="form-group">
 	                                                <label class="col-md-4 control-label">Plan Description </label>
 	                                                <div class="col-md-8">
-	                                                    <textarea row="5"  class="form-control" value="" name="txt_plan_desc"></textarea>
+	                                                    <textarea row="5"  class="form-control" value="" name="txt_plan_desc" style="resize:none;"></textarea>
 	                                                </div>
 	                                                <div class="col-md-6">
 	                                                <?php echo form_error('txt_plan_desc');?>
