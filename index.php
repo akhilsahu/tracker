@@ -1,8 +1,5 @@
 <?php
-asassaadsad
 
-asssdsdsdf
-sdsdfsfsf
 /**
  * CodeIgniter
  *
