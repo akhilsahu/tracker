@@ -75,28 +75,28 @@ function insert_member(){
 
 }
 
-function list_member(){
-	$data['member_list'] = $this->Member_Model->member_list();
-    $data['load_page']='view_members';
+function list_clients(){
+	$data['client_list'] = $this->Login_Model->client_list();
+    $data['load_page']='view_client';
 
-	$this->load->view('client/view_page',$data);
+	$this->load->view('admin/view_page',$data);
 
 }
 
-function edit_member($edit_id){
+function edit_client($edit_id){
+
+	$data['edit_clients'] = $this->Login_Model->get_client($edit_id,$this->user[0]['int_user_id']);
 	
-	$data['edit_member'] = $this->Member_Model->get_Member($edit_id);
-	//print_r($this->user[0]['int_user_id']);exit;
-	 $data['load_page']='edit_member';
-	 // $data['plan_of_client_val'] = $this->Mmber_Model->plan_of_client();
-   // $data['client_type_val'] = $this->Login_Model->client_type();
-	$this->load->view('Client/view_page',$data);
+	 $data['load_page']='edit_client';
+	  $data['plan_of_client_val'] = $this->Login_Model->plan_of_client();
+    $data['client_type_val'] = $this->Login_Model->client_type();
+	$this->load->view('admin/view_page',$data);
 }
 
-function delete_member($edit_id){
+function delete_client($edit_id){
 
-	$this->Member_Model->delete_member($edit_id,$this->user[0]['int_user_id']);
-	 redirect('/Member/list_member');
+	$this->Login_Model->delete_client($edit_id,$this->user[0]['int_user_id']);
+	 redirect('/Client/list_clients');
                
 	 
 }

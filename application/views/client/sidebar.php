@@ -14,7 +14,7 @@
                             </li>
 
                             <li>
-                                <a href="<?php echo site_url('Member/view_member') ?>" class="waves-effect"><i class="ti-paint-bucket"></i>View Member </a>
+                                <a href="<?php echo site_url('Member/list_member') ?>" class="waves-effect"><i class="ti-paint-bucket"></i>View Member </a>
                                
                             </li>
 
