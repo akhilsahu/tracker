@@ -23,7 +23,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'http://localhost:8080/tracker/';
+$config['base_url'] = 'http://localhost/tracker/';
 
 /*
 |--------------------------------------------------------------------------
@@ -42,7 +42,11 @@ $config['index_page'] = 'index.php';
 | URI PROTOCOL
 |--------------------------------------------------------------------------
 |
-| This item determines which server global should be used to retrieve the
+| This item determines which server global should be
+
+
+
+ used to retrieve the
 | URI string.  The default setting of 'REQUEST_URI' works for most servers.
 | If your links do not seem to work, try one of the other delicious flavors:
 |
