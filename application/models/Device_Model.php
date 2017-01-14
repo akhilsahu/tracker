@@ -1,5 +1,9 @@
 <?php
- class Member_Model extends CI_Model{
+ class Device_Model extends CI_Model{
+
+  public function Member_Model(){
+  	
+  }
 
   public function plan_of_client(){
   	
@@ -18,21 +22,15 @@
   	           
   }
 
-  public function member_list(){
+  public function client_list(){
   	
-  	$q=$this->db->query("select * from tab_members");
+  	$q=$this->db->query("select * from tab_clients");
   	return $data =$q->result_array();
               
   	           
   }
-  public function get_Member($id){
-        $query=$this->db->query("SELECT *
-                                 FROM tab_members 
-                                 WHERE int_member_id = '$id'");
-        return $query->row_array();
-    }	
 
-  public function insert_member_data($int_user_id){
+  public function insert_device_data($int_user_id){
   	$data = array(
                    'txt_name' => $this->input->post('member_name'),
                    'int_client_id' => $this->input->post('id'),
@@ -66,7 +64,12 @@
   	           
   }
 
-  
+  public function get_client($id,$int_user_id){
+        $query=$this->db->query("SELECT *
+                                 FROM tab_clients 
+                                 WHERE int_client_id = $id and txt_added_by=$int_user_id");
+        return $query->row_array();
+    }
   
   public function delete_client($id,$int_user_id){
     $this->db->where('txt_added_by',$int_user_id);
