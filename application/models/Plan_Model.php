@@ -2,7 +2,7 @@
  class Plan_Model extends CI_Model{
 
  public function insert_plan_data($int_user_id){
-
+    // print_r($_FILES) ;die;
  	$data = array(
                    'txt_plan_name' => $this->input->post('txt_plan_name'),
                    'txt_plan_desc' => $this->input->post('txt_plan_desc'),
@@ -10,7 +10,7 @@
                    'txt_added_by' => $int_user_id,
                    'dt_date' => date('Y-m-d',strtotime($this->input->post('date'))));
 
- 	$target_dir = "uploads/plans/";
+ 	$target_dir = "upload/plan/";
 	$target_file = $target_dir . basename($_FILES["txt_logo"]["name"]);
 	$uploadOk = 1;
 	$imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);

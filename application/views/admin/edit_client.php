@@ -14,8 +14,9 @@
                         			<div class="row">
                         				<div class="col-md-6">
                         					<form class="form-horizontal" role="form" action="<?php echo site_url('Client/update_client')?>" method="post">                                    
-	                                            <div class="form-group"> 
-	                                            <input type="hidden" name ="update_id" value="<?php echo $edit_clients['int_client_id'];?>">
+	                                           <input type="hidden" name ="update_id" value="<?php echo $edit_clients['int_client_id'];?>">
+                                                    <div class="form-group"> 
+	                                            
 	                                                <label class="col-md-4 control-label">Client Name </label>
 	                                                <div class="col-md-8">
 	                                                    <input type="text" class="form-control" value="<?php echo $edit_clients['txt_client_name']; ?>" name="client_name">
@@ -25,8 +26,8 @@
 	                                                </div>
 	                                            </div>
 	                                             <div class="form-group">
-	                                                <label class="col-sm-2 control-label">Plan Of CLient</label>
-	                                                <div class="col-sm-10">
+	                                                <label class="col-md-4 control-label">Plan Of CLient</label>
+	                                              <div class="col-md-8">
 	                                                    <select class="form-control" name="plan_of_client" >
 	                                                         <?php foreach($plan_of_client_val as $each){ ?>
                            <option value="<?php echo $each['int_plan_id']; ?>" <?php echo ($each['int_plan_id']==$edit_clients['txt_plan_of_client'])?'selected':"";?>><?php echo $each['txt_plan_name']; ?></option>
@@ -41,8 +42,8 @@
 	                                                </div>
 	                                            </div>
 	                                             <div class="form-group">
-	                                                <label class="col-sm-2 control-label">Client Type</label>
-	                                                <div class="col-sm-10">
+	                                                <label class="col-md-4 control-label">Client Type</label>
+	                                              <div class="col-md-8">
 	                                                    <select class="form-control" name="client_type">
 	                                                       
 	                                                        <?php foreach($client_type_val as $each){ ?> 
@@ -61,33 +62,32 @@
 	                                                <div class="col-md-8">
 	                                                    <input type="text" class="form-control" value="<?php echo $edit_clients['txt_no_of_member']?>" name="no_of_member">
 	                                                </div>
-	                                            </div>                                                                       
+	                                                                                                                  
 	                                             <div class="col-md-6">
 	                                                <?php echo form_error('no_of_member')?>
 	                                                </div>
-	                                            </div>
+	                                          </div> 
 	                                             <div class="form-group">
-	                                             <label class="col-md-2 control-label">Date</label>
+	                                             <label class="col-md-4 control-label">Date</label>
 
-        <div class='col-sm-6'>
-            <div class="form-group">
-                <div class='input-group date'>
-                    <input type='text' class="form-control" id="datepicker" value="<?php echo $edit_clients['dt_date']?>" name="date" />
-                    <span class="input-group-addon">
-                        <span class="glyphicon glyphicon-calendar"></span>
-                    </span>
-                </div>
-           <div class="col-md-6">
-	                                                <?php echo form_error('date')?>
-	                                                </div>
-        </div>
+                                                       <div class="col-md-8 input-group date">
+                                                             <input type='text' class="form-control" id="datepicker" value="<?php echo $edit_clients['dt_date']?>" name="date" />
+                                                                    <span class="input-group-addon">
+                                                                        <span class="glyphicon glyphicon-calendar"></span>
+                                                       </div>            </span>
+                                                    
+                                                           <div class="col-md-6">
+                                                                 <?php echo form_error('date')?>
+                                                          </div>
+                                                        </div>
+                                                           </div>
+                                                    </div>
         <script>
   $( function() {
     $( "#datepicker" ).datepicker();
   } );
   </script>
-    </div>
-</div>
+    
 
 	                                             <div class="form-group">
                                                  <div class="col-lg-10 col-lg-offset-2">

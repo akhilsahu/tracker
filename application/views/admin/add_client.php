@@ -107,9 +107,9 @@
 												  } );
 												  </script>
 												    </div>
-<<<<<<< HEAD
+
 													
-=======
+
 													<div class="form-group">
 	                                             
 												       
@@ -118,7 +118,6 @@
 			                                            </div>
 												       
 												    </div>
->>>>>>> 1e94cf0feeedf1f256c45eeffcff7ad182fec6b6
 
 	                                             <div class="form-group">
                                                  <div class="col-lg-10 col-lg-offset-2">

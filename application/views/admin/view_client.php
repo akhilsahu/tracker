@@ -1,3 +1,6 @@
+
+
+
 <script>
         function delete_record(id)
     {
@@ -30,7 +33,8 @@
 									</p> -->
 									<table class="table">
 									<thead>
-										<th>Client Name </th>
+										<th>Client's Name </th>
+                                                                                <th>Client's Type </th>
 										<th> Plan Of Client</th>
 										<th>Email </th>
 										<th>Phone Number</th>
@@ -42,7 +46,9 @@
 									foreach($client_list as $each){ ?>
 									<tr id="delrow<?php echo $each['int_client_id']?>">
 									<td><?php echo $each['txt_client_name']; ?></td>
-									<td><?php echo $each['txt_plan_of_client']; ?></td>
+                                                                        <td><?php echo $each['txt_plan_name']; ?></td>
+                                                                        <td><?php echo $each['txt_client_type']; ?></td>
+									
 									<td><?php echo $each['txt_client_email']; ?></td>
 									<td><?php echo $each['txt_mobile']; ?></td>
 									<td><?php echo $each['txt_no_of_member']; ?></td>
@@ -52,7 +58,7 @@
 									<?php }} else{ ?>
 									<tr>
 									<td colspan="3">
-									No Records Forund
+									No Records Found
 									</td>
 									</tr>
 									<?php }  ?>

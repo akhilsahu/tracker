@@ -32,8 +32,11 @@
 
   public function client_list(){
   	
-  	$q=$this->db->query("select * from tab_clients");
+  	$q=$this->db->query("SELECT P.txt_plan_name, C.* from tab_clients as C inner join tab_plans as P on C.txt_plan_of_client=P.int_plan_id");
   	return $data =$q->result_array();
+           //print_r($data);exit;
+        
+        
               
   	           
   }

@@ -74,6 +74,7 @@ class Client extends CI_Controller{
 
 function list_clients(){
 	$data['client_list'] = $this->Login_Model->client_list();
+        //print_r($data['client_list']);exit;
     $data['load_page']='view_client';
 
 	$this->load->view('admin/view_page',$data);
