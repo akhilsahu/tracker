@@ -24,7 +24,7 @@
                             </li>
 
                             <li >
-                                <a href="<?php echo site_url('Device/view_device') ?>" class="waves-effect"><i class="ti-spray"></i> View Device</a>
+                                <a href="<?php echo site_url('Device/list_device') ?>" class="waves-effect"><i class="ti-spray"></i> View Device</a>
                                 
                             </li>
 

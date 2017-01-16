@@ -1,6 +1,3 @@
- <?php 
- //print_r($edit_member);exit;
-  ?>
 <div class="content">
 		<div class="container">
 		<div class="row">
@@ -20,7 +17,8 @@
 												
 	                                                <label class="col-md-2 control-label">Member Name </label>
 	                                                <div class="col-md-7">
-													<!--<input type="hidden" class="form-control" value="<?php  ?>" name="id">-->
+													<input type="hidden" class="form-control" value="<?php echo $edit_member['int_member_id'] ?>" name="id">
+													<input type="hidden" class="form-control" value="<?php echo $edit_member['int_client_id'] ?>" name="id_client">
 	                                                    <input type="text" class="form-control" value="<?php echo $edit_member['txt_name']; ?>" name="member_name">
 	                                                </div>
 	                                                <div class="col-md-3">
@@ -42,7 +40,7 @@
 	                                                <div class="col-md-7">
 	                                                    <select type="text" class="form-control" name="txt_gender">
 														<option value="Male">Male</option>
-														<option value="Female">Female</option>
+														<option value="Female">Female</option></select>
 	                                                </div>
 	                                            	<div class="col-md-3">
 	                                                <?php echo form_error('txt_gender');?>
@@ -92,8 +90,8 @@
 												
 	                                             <div class="form-group">
                                                  <div class="col-lg-10 col-lg-offset-2">
-                                                 <button type="reset" class="btn btn-default">Cancel</button>
-                                                 <button type="submit" class="btn btn-primary" >Submit</button>
+                                                 <button href="<?php echo site_url('Member/list_member')?>" class="btn btn-default">Cancel</button>
+                                                 <button type="submit" class="btn btn-primary" >Update</button>
                                                  </div>
                                                  </div>
 	                                            

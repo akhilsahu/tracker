@@ -29,29 +29,26 @@ class Welcome extends CI_Controller {
 		$this->load->view('view_page',$data);*/
 	}
 
-	public function admin_login(){
+   public function admin_login(){
    $username = $this->input->post('username');
    $password = $this->input->post('password');
    $this->load->model('Login_Model');
    $valid_login = $this->Login_Model->login_valid($username,$password);
    //print_r($valid_login[0]['int_group_id']);exit;
-   if($valid_login[0]['int_group_id']==2){
-   	$this->session->set_userdata('user',$valid_login);
-	$data=$this->session->userdata('user',$valid_login);
+   if($valid_login[0]['int_group_id']==1)
+   {
+		$this->session->set_userdata('user',$valid_login);
+		$data['load_page']='welcome_message';
+		$this->load->view('admin/view_page',$data);	
+   }
+   else if($valid_login[0]['int_group_id']==2)
+   {   $this->session->set_userdata('user',$valid_login);
 	   $data['load_page']='welcome_message';
-	  // print_r($data);exit;
-		$this->load->view('admin/view_page',$data);
-		
-   }else{
-   	//echo "usernmae & password wrong ";
-    //$this->load->view('user_login');
-	$this->session->set_userdata('user',$valid_login);
-	$data=$this->session->userdata('user',$valid_login);
-	   $data['load_page']='welcome_message';
-	  // print_r($data);exit;
-		$this->load->view('client/view_page',$data);
-		
-	
+	   $this->load->view('client/view_page',$data);
+   }
+   else
+   {
+	   $this->load->view('user_login');
    }
 
 	}

@@ -35,10 +35,6 @@
   	$q=$this->db->query("SELECT P.txt_plan_name, C.* from tab_clients as C inner join tab_plans as P on C.txt_plan_of_client=P.int_plan_id");
   	return $data =$q->result_array();
            //print_r($data);exit;
-        
-        
-              
-  	           
   }
 
   public function insert_client_data($int_user_id){
@@ -124,8 +120,8 @@
 
   	$this->db->where('txt_added_by',$int_user_id);
   	$this->db->where('int_client_id',$this->input->post('update_id'));
-  	return $this->db->update("tab_clients",$data);
-  	// echo $this->db->last_query();
+    $this->db->update("tab_clients",$data);
+  	 echo $this->db->last_query();
   	
 
   	           

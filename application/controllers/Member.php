@@ -1,24 +1,16 @@
 <?php
 class Member extends CI_Controller{
 
-	//public $abc;
 	public function __construct()
     {
         parent::__construct();
         $this->load->model('Member_Model');
 		$this->load->model('Login_Model');
         $this->user=$this->session->userdata('user');
-		
-		//print_r($this->user);exit;
     }
 
     public function add_member(){
-	//echo "call the client";
-    //$data['plan_of_client_val'] = $this->Login_Model->plan_of_client();
-    //$data['client_type_val'] = $this->Login_Model->client_type();
-        
 	$data['load_page']='add_member';
-	//print_r($this->user);exit;
 	$this->load->view('client/view_page',$data);
 }
 
@@ -38,39 +30,47 @@ function insert_member(){
    
     if ($this->form_validation->run() == TRUE)
                 {
-					$this->Member_Model->insert_member_data($this->user[0]['int_user_id']);
+					$executed=$this->Member_Model->insert_member_data($this->user[0]['int_user_id']);
+					if($executed)
+					{
+						redirect('/Member/list_member');
+					}
 
                }
                 else
                 {
-					echo 'hi';
-                   // $data['load_page']='add_member';
-	                 //$this->load->view('Client/view_page',$data);
+					//echo 'hi';
+                    $data['load_page']='add_member';
+	                $this->load->view('Client/view_page',$data);
                 }
 
 }
 
-	function update_client(){
+	function update_member(){
 	$this->load->library('form_validation');
-    $this->form_validation->set_rules('client_name', 'Client Name', 'required');
-    $this->form_validation->set_rules('plan_of_client', 'Plan Of Client', 'required');
-    $this->form_validation->set_rules('client_type', 'Client Type', 'required');
-    $this->form_validation->set_rules('no_of_member', 'Number Of Member', 'required');
-    $this->form_validation->set_rules('date', 'Date', 'required');
+	$this->form_validation->set_rules('member_name', 'Member Name', 'required');
+    $this->form_validation->set_rules('txt_designation', 'Designation', 'required');
+    $this->form_validation->set_rules('txt_gender', 'Gender', 'required');
+	$this->form_validation->set_rules('member_relation', 'Relation', 'required');
+	$this->form_validation->set_rules('txt_email', 'Email', 'required');
+	$this->form_validation->set_rules('txt_phone', 'Mobile No.', 'required');
+    $this->form_validation->set_rules('txt_pan', 'PAN No.', 'required');
+    //$this->form_validation->set_rules('date', 'Date', 'required');
     $this->form_validation->set_error_delimiters("<p class='text-danger'>","</p>");
    
     if ($this->form_validation->run() == TRUE)
                 {
-                	$executed =  $this->Login_Model->update_client_data($this->user[0]['int_user_id']);
+					
+                	$executed =  $this->Member_Model->update_member_data($this->user[0]['int_user_id']);
                 	if($executed){
-                		 redirect('/Client/list_clients');
+                		 redirect('/Member/list_member');
                 	}
 
                }
                 else
                 {
-                    $data['load_page']='add_plan';
-	                 $this->load->view('admin/view_page',$data);
+                    $data['load_page']='edit_member';
+	                 $this->load->view('client/view_page',$data);
                 }
 
 }
@@ -86,16 +86,13 @@ function list_member(){
 function edit_member($edit_id){
 	
 	$data['edit_member'] = $this->Member_Model->get_Member($edit_id);
-	//print_r($this->user[0]['int_user_id']);exit;
 	 $data['load_page']='edit_member';
-	 // $data['plan_of_client_val'] = $this->Mmber_Model->plan_of_client();
-   // $data['client_type_val'] = $this->Login_Model->client_type();
 	$this->load->view('Client/view_page',$data);
 }
 
 function delete_member($edit_id){
 
-	$this->Member_Model->delete_member($edit_id,$this->user[0]['int_user_id']);
+	$this->Member_Model->delete_member($edit_id);
 	 redirect('/Member/list_member');
                
 	 

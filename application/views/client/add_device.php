@@ -14,78 +14,38 @@
 									</p> -->
                         			<div class="row">
                         				<div class="col-md-12">
-                        					<form class="form-horizontal" role="form" action="<?php echo site_url('Member/insert_member')?>" method="post">                                    
+                        					<form class="form-horizontal" role="form" action="<?php echo site_url('Device/insert_device')?>" method="post">                                    
 	                                            <div class="form-group"> 
 												
-	                                                <label class="col-md-2 control-label">Member Name </label>
+	                                                <label class="col-md-2 control-label">IMEI Number </label>
 	                                                <div class="col-md-7">
-													<input type="hidden" class="form-control" value="<?php echo $abc[0]['int_user_id']; ?>" name="id">
-	                                                    <input type="text" class="form-control" value="" name="member_name">
+													<!--<input type="hidden" class="form-control" value="<?php echo $abc[0]['int_user_id']; ?>" name="id">-->
+	                                                    <input type="text" class="form-control" value="" name="txt_imei">
 	                                                </div>
 	                                                <div class="col-md-3">
-	                                                <?php echo form_error('member_name');?>
+	                                                <?php echo form_error('txt_imei');?>
 	                                                </div>
 	                                            </div>
 	                                             <div class="form-group">
-	                                                <label class="col-sm-2 control-label">Designation</label>
+	                                                <label class="col-sm-2 control-label">Manufacturer Name</label>
 	                                                <div class="col-md-7">
-	                                                    <input type="text" class="form-control" value="" name="txt_designation">
+	                                                    <input type="text" class="form-control" value="" name="txt_manufacturer">
 	                                                </div>
 	                                              <div class="col-md-3">
-	                                                <?php echo form_error('txt_designation');?>
+	                                                <?php echo form_error('txt_manufacturer');?>
 	                                               </div>
 													
 	                                            </div>
 	                                                  <div class="form-group">
-	                                                <label class="col-md-2 control-label">Gender</label>
+	                                                <label class="col-md-2 control-label">Device Owner</label>
 	                                                <div class="col-md-7">
-	                                                    <input type="text" class="form-control" value="" name="txt_gender">
+	                                                    <input type="text" class="form-control" value="" name="txt_owner">
 	                                                </div>
 	                                            	<div class="col-md-3">
-	                                                <?php echo form_error('txt_gender');?>
+	                                                <?php echo form_error('txt_owner');?>
 	                                                </div>
 	                                            </div>  
-												 <div class="form-group">
-	                                                <label class="col-md-2 control-label">Relation</label>
-	                                                <div class="col-md-7">
-	                                                    <input type="text" class="form-control" value="" name="member_relation">
-	                                                </div>
-	                                            	<div class="col-md-3">
-	                                                <?php echo form_error('member_relation');?>
-	                                                </div>
-	                                            </div>  
-	                                                
-												
-													 
-												<div class="form-group">
-	                                                <label class="col-md-2 control-label">Email</label>
-	                                                <div class="col-md-7">
-	                                                    <input type="text" class="form-control" value="" name="txt_email">
-	                                                </div>
-	                                            	<div class="col-md-3">
-	                                                <?php echo form_error('txt_email');?>
-	                                                </div>
-	                                            </div>
-																								
-	                                                  <div class="form-group">
-	                                                <label class="col-md-2 control-label">Mobile No.</label>
-	                                                <div class="col-md-7">
-	                                                    <input type="text" class="form-control" value="" name="txt_phone">
-	                                                </div>
-	                                            	<div class="col-md-3">
-	                                                <?php echo form_error('txt_phone');?>
-	                                                </div>
-	                                            </div> 
-												
-												 <div class="form-group">
-	                                                <label class="col-md-2 control-label">PAN No.</label>
-	                                                <div class="col-md-7">
-	                                                    <input type="text" class="form-control" value="" name="txt_pan">
-	                                                </div>
-	                                            	<div class="col-md-3">
-	                                                <?php echo form_error('txt_pan');?>
-	                                                </div>
-	                                            </div> 
+												 
 												
 	                                             <div class="form-group">
                                                  <div class="col-lg-10 col-lg-offset-2">

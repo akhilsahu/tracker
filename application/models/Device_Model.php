@@ -22,29 +22,46 @@
   	           
   }
 
-  public function client_list(){
+  public function device_list(){
   	
-  	$q=$this->db->query("select * from tab_clients");
+  	$q=$this->db->query("select * from tab_device");
   	return $data =$q->result_array();
               
   	           
   }
 
   public function insert_device_data($int_user_id){
+	  $seed = str_split('ABCDEFGHIJKLMNOPQRSTUVWXYZ'.'0123456789'); 
+					shuffle($seed); 
+					$rand = '';
+					foreach (array_rand($seed, 16) as $k)
+					{
+					 $rand .= $seed[$k];
+					}
+					
+	 $seed1 = str_split('SAAYA'.'0123456789'); 
+					shuffle($seed1); 
+					$rand1 = '';
+					foreach (array_rand($seed1, 8) as $k1)
+					{
+					 $rand1 .= $seed1[$k1];
+					}
   	$data = array(
-                   'txt_name' => $this->input->post('member_name'),
-                   'int_client_id' => $this->input->post('id'),
-				   'txt_designation' => $this->input->post('txt_designation'),
-				   'txt_gender' => $this->input->post('txt_gender'),
-				   'txt_relation' => $this->input->post('member_relation'),
-                   'txt_email' => $this->input->post('txt_email'),
-				   'txt_phone' => $this->input->post('txt_phone'),
-					'txt_pan_no' => $this->input->post('txt_pan'));
+                   'txt_imei' => $this->input->post('txt_imei'),
+                   'txt_key' => $rand,
+				   'txt_manufacturer_name' => $this->input->post('txt_manufacturer'),
+				   'txt_token' => $rand1,
+				   'txt_device_owner' => $this->input->post('txt_owner'));
+				
+				    return $this->db->insert("tab_device",$data);
                     //'dt_date' => date('Y-m-d',strtotime($this->input->post('date'))));
-					$this->db->insert("tab_members",$data);
-	}
+					}
   
-
+	public function delete_device($id){
+    //$this->db->where('txt_added_by',$int_user_id);
+  	$this->db->where('int_device_id',$id);
+  	$this->db->delete("tab_device");
+    }
  /* public function update_client_data($int_user_id){
   	$data = array(  
                    'txt_client_name' => $this->input->post('client_name'),
@@ -71,11 +88,7 @@
         return $query->row_array();
     }
   
-  public function delete_client($id,$int_user_id){
-    $this->db->where('txt_added_by',$int_user_id);
-  	$this->db->where('int_client_id',$id);
-  	$this->db->delete("tab_clients");
-    }
+ 
 
     public function record($user)
     {

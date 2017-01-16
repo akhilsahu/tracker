@@ -1,51 +1,45 @@
 <?php
-class Member extends CI_Controller{
+class Device extends CI_Controller{
 
-	//public $abc;
 	public function __construct()
     {
         parent::__construct();
-        $this->load->model('Member_Model');
-		$this->load->model('Login_Model');
+        //$this->load->model('Member_Model');
+		//$this->load->model('Login_Model');
+		$this->load->model('Device_Model');
         $this->user=$this->session->userdata('user');
 		
 		//print_r($this->user);exit;
     }
 
-    public function add_member(){
-	//echo "call the client";
-    //$data['plan_of_client_val'] = $this->Login_Model->plan_of_client();
-    //$data['client_type_val'] = $this->Login_Model->client_type();
-        
-	$data['load_page']='add_member';
-	//print_r($this->user);exit;
+    public function add_device(){
+	$data['load_page']='add_device';
 	$this->load->view('client/view_page',$data);
 }
 
-function insert_member(){
+function insert_device(){
 
 	$this->load->library('form_validation');
-
-    $this->form_validation->set_rules('member_name', 'Member Name', 'required');
-    $this->form_validation->set_rules('txt_designation', 'Designation', 'required');
-    $this->form_validation->set_rules('txt_gender', 'Gender', 'required');
-	$this->form_validation->set_rules('member_relation', 'Relation', 'required');
-	$this->form_validation->set_rules('txt_email', 'Email', 'required');
-	$this->form_validation->set_rules('txt_phone', 'Mobile No.', 'required');
-    $this->form_validation->set_rules('txt_pan', 'PAN No.', 'required');
+    $this->form_validation->set_rules('txt_imei', 'IMEI Number', 'required');
+    $this->form_validation->set_rules('txt_manufacturer', 'Manufacturer Name', 'required');
+	$this->form_validation->set_rules('txt_owner', 'Device Owner Name', 'required');
     //$this->form_validation->set_rules('date', 'Date', 'required');
     $this->form_validation->set_error_delimiters("<p class='text-danger'>","</p>");
    
     if ($this->form_validation->run() == TRUE)
                 {
-					$this->Member_Model->insert_member_data($this->user[0]['int_user_id']);
+					$executed=$this->Device_Model->insert_device_data($this->user[0]['int_user_id']);
+					if($executed)
+					{
+						redirect('/Device/list_device');
+					}
 
                }
                 else
                 {
-					echo 'hi';
-                   // $data['load_page']='add_member';
-	                 //$this->load->view('Client/view_page',$data);
+						//echo 'hi';
+					   $data['load_page']='add_device';
+					   $this->load->view('Client/view_page',$data);
                 }
 
 }
@@ -75,11 +69,11 @@ function insert_member(){
 
 }
 
-function list_clients(){
-	$data['client_list'] = $this->Login_Model->client_list();
-    $data['load_page']='view_client';
+function list_device(){
+	$data['device_list'] = $this->Device_Model->device_list();
+    $data['load_page']='view_device';
 
-	$this->load->view('admin/view_page',$data);
+	$this->load->view('client/view_page',$data);
 
 }
 
@@ -93,10 +87,10 @@ function edit_client($edit_id){
 	$this->load->view('admin/view_page',$data);
 }
 
-function delete_client($edit_id){
+function delete_device($edit_id){
 
-	$this->Login_Model->delete_client($edit_id,$this->user[0]['int_user_id']);
-	 redirect('/Client/list_clients');
+	$this->Device_Model->delete_device($edit_id);
+	 redirect('/Device/list_device');
                
 	 
 }
