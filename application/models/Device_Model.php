@@ -51,10 +51,10 @@
                    'txt_key' => $rand,
 				   'txt_manufacturer_name' => $this->input->post('txt_manufacturer'),
 				   'txt_token' => $rand1,
-				   'txt_device_owner' => $this->input->post('txt_owner'));
-				
+				   'txt_device_owner' => $this->input->post('txt_owner'),
+				   'dt_date' => date('Y-m-d',strtotime($this->input->post('date'))));
 				    return $this->db->insert("tab_device",$data);
-                    //'dt_date' => date('Y-m-d',strtotime($this->input->post('date'))));
+                    
 					}
   
 	public function delete_device($id){

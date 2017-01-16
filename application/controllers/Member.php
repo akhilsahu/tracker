@@ -25,7 +25,7 @@ function insert_member(){
 	$this->form_validation->set_rules('txt_email', 'Email', 'required');
 	$this->form_validation->set_rules('txt_phone', 'Mobile No.', 'required');
     $this->form_validation->set_rules('txt_pan', 'PAN No.', 'required');
-    //$this->form_validation->set_rules('date', 'Date', 'required');
+    $this->form_validation->set_rules('date', 'Date', 'required');
     $this->form_validation->set_error_delimiters("<p class='text-danger'>","</p>");
    
     if ($this->form_validation->run() == TRUE)

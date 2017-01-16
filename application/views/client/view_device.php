@@ -45,6 +45,7 @@
 									<td><?php echo $each['txt_imei']; ?></td>
 									<td><?php echo $each['txt_manufacturer_name']; ?></td>
 									<td><?php echo $each['txt_device_owner']; ?></td>
+									<td><?php echo $each['txt_token']; ?></td>
 									<td><?php echo $each['dt_date']; ?></td>
 									<td>
 									<a href="<?php echo site_url().'/Device/edit_device/'.$each['int_device_id'] ?>" class="btn btn-primary">Edit</a> 
