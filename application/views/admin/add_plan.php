@@ -46,7 +46,7 @@
 	                                                <label class="col-md-4 control-label">Plan Logo </label>
 	                                                <div class="col-md-8">
 	                                                    <input type="file" id="fileUpload" class="form-control" value="" name="txt_logo" /><br/>
-	                                                    <div id="image-holder"> </div>
+	                                                    <div id="image-holder" > </div>
 	                                                </div>
 	                                                <div class="col-md-6">
 	                                                <?php echo form_error('txt_logo');?>
@@ -83,7 +83,8 @@
             reader.onload = function (e) {
                 $("<img />", {
                     "src": e.target.result,
-                    "class": "thumb-image"
+                    "class": "thumb-image",
+                    "style":"height:150px;width:200px"
                 }).appendTo(image_holder);
 
             }

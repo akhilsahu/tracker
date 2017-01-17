@@ -4,7 +4,7 @@
   public function plan_of_client(){
   	
   	$q = $this->db->query("select int_plan_id ,txt_plan_name from tab_plans");
-  	return $data = $q->result_array();\           
+  	return $data = $q->result_array();         
   }
 
   public function client_type(){

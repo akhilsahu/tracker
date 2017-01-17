@@ -1,5 +1,5 @@
 <footer class="footer">
-                    2015 © Ubold.
+                    Saaya Powered By: <a href="www.thethirdthought.com">The Third Thought</a>
                 </footer>
 
 </div>

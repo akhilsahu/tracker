@@ -1,6 +1,7 @@
 <script>
         function delete_record(id)
     {
+        
     var r = confirm("Are you sure to Delete!");
 
         if (r == true) {
@@ -50,7 +51,7 @@
 									<?php }} else{ ?>
 									<tr>
 									<td colspan="3">
-									No Records Forund
+									No Records Found
 									</td>
 									</tr>
 									<?php }  ?>

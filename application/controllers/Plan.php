@@ -29,7 +29,7 @@ function insert_plan(){
     if ($this->form_validation->run() == TRUE)
         {
             $this->Plan_Model->insert_plan_data($this->user[0]['int_user_id']);
-            redirect('/Plan/add_plan');
+            redirect('/Plan/view_plan');
        }
         else
         { 
@@ -77,6 +77,7 @@ function view_plan(){
 function edit_plan($edit_id){
     $data['edit_plans'] = $this->Plan_Model->get_plan($edit_id,$this->user[0]['int_user_id']);
     $data['load_page']='edit_plan';
+    //print_r($data);exit;
 
     $this->load->view('admin/view_page',$data);
 }

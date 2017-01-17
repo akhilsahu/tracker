@@ -31,7 +31,7 @@
                    'txt_added_by' => $int_user_id,
                    'dt_date' => date('Y-m-d',strtotime($this->input->post('date'))));
 
- 	$target_dir = "uploads/plans/";
+ 	$target_dir = "upload/plan/";
 	$target_file = $target_dir . basename($_FILES["txt_logo"]["name"]);
 	$uploadOk = 1;
 	$imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
@@ -51,7 +51,7 @@
         $query=$this->db->query("SELECT *
                                  FROM tab_plans 
                                  WHERE int_plan_id = $id and txt_added_by=$int_user_id");
-        return $query->row_array();
+        return $query->row_array(); 
     }
 
 
