@@ -32,9 +32,10 @@
 
   public function client_list(){
   	
-  	$q=$this->db->query("SELECT P.txt_plan_name, C.* from tab_clients as C inner join tab_plans as P on C.txt_plan_of_client=P.int_plan_id");
-  	return $data =$q->result_array();
-           //print_r($data);exit;
+  	$q=$this->db->query("SELECT P.txt_plan_name, C.* from tab_clients as C inner join tab_plans as P on C.txt_plan_of_client=P.int_plan_id where C.int_is_deleted=0");
+  	//print_r($q);exit;
+            return $data =$q->result_array();
+         //  print_r($data);exit;
   }
 
   public function insert_client_data($int_user_id){
@@ -136,9 +137,12 @@
     }
   
   public function delete_client($id,$int_user_id){
-    $this->db->where('txt_added_by',$int_user_id);
+      $sql="update tab_clients SET int_is_deleted=1 where int_client_id=$id and txt_added_by=$int_user_id";
+      $query=$this->db->query($sql);
+      //echo $query?"sucess":"fail";exit;
+    /*$this->db->where('txt_added_by',$int_user_id);
   	$this->db->where('int_client_id',$id);
-  	$this->db->delete("tab_clients");
+  	$this->db->update("tab_clients");*/ 
     }
 
     public function record($user)

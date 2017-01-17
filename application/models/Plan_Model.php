@@ -31,7 +31,7 @@
                    'txt_added_by' => $int_user_id,
                    'dt_date' => date('Y-m-d',strtotime($this->input->post('date'))));
 
- 	$target_dir = "uploads/plans/";
+ 	$target_dir = "upload/plan/";
 	$target_file = $target_dir . basename($_FILES["txt_logo"]["name"]);
 	$uploadOk = 1;
 	$imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
@@ -51,21 +51,24 @@
         $query=$this->db->query("SELECT *
                                  FROM tab_plans 
                                  WHERE int_plan_id = $id and txt_added_by=$int_user_id");
-        return $query->row_array();
+        return $query->row_array(); 
     }
 
 
   public function plan_list(){
   	
-  	$q=$this->db->query("select * from tab_plans");
+  	$q=$this->db->query("select * from tab_plans where int_is_deleted=0");
   	return $data =$q->result_array();
  	           
   }
 
   public function delete_plan($id,$int_user_id){
-    $this->db->where('txt_added_by',$int_user_id);
+      //echo $id."   ".$int_user_id;exit;
+      $sql="update tab_plans SET int_is_deleted=1 where int_plan_id=$id AND txt_added_by=$int_user_id";
+     $query= $this->db->query($sql);
+   /* $this->db->where('txt_added_by',$int_user_id);
   	$this->db->where('int_plan_id',$id);
-  	$this->db->delete("tab_plans");
+  	$this->db->delete("tab_plans");*/
     }
 
 }

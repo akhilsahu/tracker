@@ -26,7 +26,7 @@
 	                                             <div class="form-group">
 	                                                <label class="col-md-4 control-label">Plan Description </label>
 	                                                <div class="col-md-8">
-	                                                    <textarea row="5"  class="form-control"  name="txt_plan_desc"><?php echo $edit_plans['txt_plan_desc'];?></textarea>
+	                                                    <textarea row="5"  class="form-control" style="resize:none;"  name="txt_plan_desc"><?php echo $edit_plans['txt_plan_desc'];?></textarea>
 	                                                </div>
 	                                                <div class="col-md-6">
 	                                                <?php echo form_error('txt_plan_desc');?>
@@ -48,7 +48,7 @@
 	                                                <div class="col-md-8">
 	                                                    <input type="file" id="fileUpload" class="form-control" value="<?php echo $edit_plans['txt_logo'];?>" name="txt_logo"><br/>
 	                                                    <div id="image-holder"><?php if (isset($edit_plans['txt_logo'])){?>
-                                                            <img src="<?php echo base_url().'/'.$edit_plans['txt_logo']?>"/>
+                                                                <img src="<?php echo base_url().'/'.$edit_plans['txt_logo']?>" height="150px" width="200px"/>
                                                         <?php }?> </div>
 	                                                </div>
 	                                                <div class="col-md-6">
@@ -86,7 +86,8 @@
             reader.onload = function (e) {
                 $("<img />", {
                     "src": e.target.result,
-                    "class": "thumb-image"
+                    "class": "thumb-image",
+                    "style":"height:150px;width:200px"
                 }).appendTo(image_holder);
 
             }
