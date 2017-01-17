@@ -1,33 +1,12 @@
 <?php
  class Device_Model extends CI_Model{
 
-  public function Member_Model(){
+  public function device_list($id){
   	
-  }
-
-  public function plan_of_client(){
-  	
-  	$q = $this->db->query("select int_plan_id ,txt_plan_name from tab_plans");
-  	return $data = $q->result_array();
-   
-  	           
-  	           
-  }
-
-  public function client_type(){
-  	
-  	$q=$this->db->query("select * from tab_user_group");
-  	return $data =$q->result_array();
-              
-  	           
-  }
-
-  public function device_list(){
-  	
-  	$q=$this->db->query("select * from tab_device");
-  	return $data =$q->result_array();
-              
-  	           
+  	$q=$this->db->query("select *
+						 FROM tab_device 
+						 WHERE txt_added_by = '$id' and int_is_deleted!=1");
+  	return $data =$q->result_array(); 	           
   }
 
   public function insert_device_data($int_user_id){
@@ -46,48 +25,58 @@
 					{
 					 $rand1 .= $seed1[$k1];
 					}
-  	$data = array(
+  	 $data = array(
                    'txt_imei' => $this->input->post('txt_imei'),
                    'txt_key' => $rand,
 				   'txt_manufacturer_name' => $this->input->post('txt_manufacturer'),
 				   'txt_token' => $rand1,
 				   'txt_device_owner' => $this->input->post('txt_owner'),
+				   'txt_added_by' => $int_user_id,
 				   'dt_date' => date('Y-m-d',strtotime($this->input->post('date'))));
 				    return $this->db->insert("tab_device",$data);
                     
 					}
   
 	public function delete_device($id){
-    //$this->db->where('txt_added_by',$int_user_id);
-  	$this->db->where('int_device_id',$id);
-  	$this->db->delete("tab_device");
+     $query=$this->db->query("Update tab_device SET int_is_deleted=1 WHERE int_device_id = $id ");
+        return  $query;
     }
- /* public function update_client_data($int_user_id){
+	
+	 public function get_device($id,$added_by){
+       $query=$this->db->query("SELECT *
+                                 FROM tab_device 
+                                 WHERE int_device_id = '$id' AND txt_added_by='$added_by'");
+        return $query->row_array();
+}
+	
+	public function update_device_data($int_user_id){
   	$data = array(  
-                   'txt_client_name' => $this->input->post('client_name'),
-                   'txt_plan_of_client' => $this->input->post('plan_of_client'),
-                   'txt_client_type' => $this->input->post('client_type'),
-                    'int_no_of_members' => $this->input->post('no_of_member'),
-                    'txt_added_by' => $int_user_id,
-                    'dt_date' => date('Y-m-d',strtotime($this->input->post('date'))));
+                   'txt_imei' => $this->input->post('txt_imei'),
+                   'txt_manufacturer_name' => $this->input->post('txt_manufacturer_name'),
+                   'txt_device_owner' => $this->input->post('txt_device_owner'),
+                   'dt_date' => date('Y-m-d',strtotime($this->input->post('date'))));
+					$this->db->where('int_device_id',$this->input->post('int_id'));
+					$this->db->where('txt_added_by',$int_user_id);
+					return $this->db->update("tab_device",$data);          
+  }
 
-  	$this->db->where('txt_added_by',$int_user_id);
-  	$this->db->where('int_client_id',$this->input->post('update_id'));
-  	return $this->db->update("tab_clients",$data);
-  	// echo $this->db->last_query();
+ 
+ /*  public function plan_of_client(){
   	
-
+  	$q = $this->db->query("select int_plan_id ,txt_plan_name from tab_plans");
+  	return $data = $q->result_array();
+   
   	           
   	           
   }
 
-  public function get_client($id,$int_user_id){
-        $query=$this->db->query("SELECT *
-                                 FROM tab_clients 
-                                 WHERE int_client_id = $id and txt_added_by=$int_user_id");
-        return $query->row_array();
-    }
-  
+  public function client_type(){
+  	
+  	$q=$this->db->query("select * from tab_user_group");
+  	return $data =$q->result_array();
+              
+  	           
+  }
  
 
     public function record($user)

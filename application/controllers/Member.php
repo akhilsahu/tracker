@@ -14,10 +14,8 @@ class Member extends CI_Controller{
 	$this->load->view('client/view_page',$data);
 }
 
-function insert_member(){
-
+    function insert_member(){
 	$this->load->library('form_validation');
-
     $this->form_validation->set_rules('member_name', 'Member Name', 'required');
     $this->form_validation->set_rules('txt_designation', 'Designation', 'required');
     $this->form_validation->set_rules('txt_gender', 'Gender', 'required');
@@ -30,6 +28,7 @@ function insert_member(){
    
     if ($this->form_validation->run() == TRUE)
                 {
+					//print_r($this->user[0]['int_user_id']);exit;
 					$executed=$this->Member_Model->insert_member_data($this->user[0]['int_user_id']);
 					if($executed)
 					{
@@ -76,7 +75,7 @@ function insert_member(){
 }
 
 function list_member(){
-	$data['member_list'] = $this->Member_Model->member_list();
+	$data['member_list'] = $this->Member_Model->member_list($this->user[0]['int_user_id']);
     $data['load_page']='view_members';
 
 	$this->load->view('client/view_page',$data);
@@ -91,11 +90,9 @@ function edit_member($edit_id){
 }
 
 function delete_member($edit_id){
-
-	$this->Member_Model->delete_member($edit_id);
-	 redirect('/Member/list_member');
-               
-	 
+	$data=$this->Member_Model->delete_member($edit_id,$this->user[0]['int_user_id']);
+	
+	//redirect('/Member/list_member');
 }
 
 function logout(){

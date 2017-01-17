@@ -13,8 +13,7 @@
             }});
         }
     }
-</script> 
-
+</script>
 
 <div class="content">
 		<div class="container">
@@ -40,7 +39,7 @@
 									<tbody>
 									<?php if(count($device_list)){
 									foreach($device_list as $each){ ?>
-									<tr id="delrow<?php echo $each['int_device_id']?>">
+									<tr id="delrow<?php echo $each['int_device_id']; ?>">
 									<td><?php echo $each['txt_key']; ?></td>
 									<td><?php echo $each['txt_imei']; ?></td>
 									<td><?php echo $each['txt_manufacturer_name']; ?></td>

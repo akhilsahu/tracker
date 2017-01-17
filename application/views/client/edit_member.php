@@ -6,7 +6,7 @@
 		<div class="row">
                         	<div class="col-sm-12">
                         		<div class="card-box">
-                        			<h4 class="m-t-0 header-title"><b>Add Member</b></h4>
+                        			<h4 class="m-t-0 header-title"><b>Edit Member</b></h4>
                         			<!-- <p class="text-muted m-b-30 font-13">
 										Most common form control, text-based input fields. Includes support for all HTML5 types: <code>text</code>, <code>password</code>, <code>datetime</code>, <code>datetime-local</code>, <code>date</code>, <code>month</code>, <code>time</code>, <code>week</code>, <code>number</code>, <code>email</code>, <code>url</code>, <code>search</code>, <code>tel</code>, and <code>color</code>.
 									</p> -->
@@ -18,8 +18,8 @@
 	                                                <label class="col-md-2 control-label">Member Name </label>
 	                                                <div class="col-md-7">
 													<input type="hidden" class="form-control" value="<?php echo $edit_member['int_member_id'] ?>" name="id">
-													<input type="hidden" class="form-control" value="<?php echo $edit_member['int_client_id'] ?>" name="id_client">
-	                                                    <input type="text" class="form-control" value="<?php echo $edit_member['txt_name']; ?>" name="member_name">
+													<input type="hidden" class="form-control" value="<?php echo $edit_member['txt_added_by'] ?>" name="id_added">
+	                                                <input type="text" class="form-control" value="<?php echo $edit_member['txt_name']; ?>" name="member_name">
 	                                                </div>
 	                                                <div class="col-md-3">
 	                                                <?php echo form_error('member_name');?>

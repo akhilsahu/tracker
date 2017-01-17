@@ -1,6 +1,3 @@
-
-
-
 <script>
         function delete_record(id)
     {

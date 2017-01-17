@@ -19,7 +19,6 @@
 												
 	                                                <label class="col-md-2 control-label">Member Name </label>
 	                                                <div class="col-md-7">
-													<input type="hidden" class="form-control" value="<?php echo $abc[0]['int_user_id']; ?>" name="id">
 	                                                    <input type="text" class="form-control" value="" name="member_name">
 	                                                </div>
 	                                                <div class="col-md-3">
@@ -54,9 +53,7 @@
 	                                                <?php echo form_error('member_relation');?>
 	                                                </div>
 	                                            </div>  
-	                                                
-												
-													 
+	                                              	 
 												<div class="form-group">
 	                                                <label class="col-md-2 control-label">Email</label>
 	                                                <div class="col-md-7">
@@ -86,7 +83,27 @@
 	                                                <?php echo form_error('txt_pan');?>
 	                                                </div>
 	                                            </div> 
-												
+												<div class="form-group">
+	                                             <label class="col-md-2 control-label">Date</label>
+												        <div class='col-md-7'>
+												            <div class="form-group">
+												                <div class='input-group date'>	
+												                    <input type='text' class="form-control" id="datepicker" name="date" />
+												                    <span class="input-group-addon">
+												                        <span class="glyphicon glyphicon-calendar"></span>
+												                    </span>
+												                </div>												           
+												        	</div>
+												        </div>
+												        <div class="col-md-3">
+			                                                <?php echo form_error('date');?>
+			                                            </div>
+												        <script>
+												  $( function() {
+												    $( "#datepicker" ).datepicker();
+												  } );
+												  </script>
+												    </div>
 	                                             <div class="form-group">
                                                  <div class="col-lg-10 col-lg-offset-2">
                                                  <button type="reset" class="btn btn-default">Cancel</button>
