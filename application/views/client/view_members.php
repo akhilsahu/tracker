@@ -37,6 +37,7 @@
 										<th>Email </th>
 										<th>Phone Number</th>
 										<th>Pan no.</th>
+                                                                                <th>Action</th>
 									</thead>
 									<tbody>
 									<?php if(count($member_list)){

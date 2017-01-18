@@ -25,16 +25,34 @@
 
   public function insert_member_data($int_user_id){
 	  //echo "hi";exit;
+          $seed = str_split('abcdefghijklmnopqrstuvwxyz'
+		                 .'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+		                 .'0123456789!@#$%^&*'); 
+		shuffle($seed); 
+		$password = '';
+		foreach (array_rand($seed, 8) as $k)
+		{
+		 $password .= $seed[$k];
+		}
+                $seed1 = str_split('0123456789'.'ABCDEFGHIJKLMNOPQRSTUVWXYZ'); 
+		shuffle($seed1); 
+		$key = '';
+		foreach (array_rand($seed1, 16) as $k)
+		{
+		 $key .= $seed1[$k];
+		}
 	 // print_r($int_user_id);exit;
   	$data = array(
                    'txt_name' => $this->input->post('member_name'),
-				   'txt_designation' => $this->input->post('txt_designation'),
-				   'txt_gender' => $this->input->post('txt_gender'),
-				   'txt_relation' => $this->input->post('member_relation'),
+                   'txt_designation' => $this->input->post('txt_designation'),
+		   'txt_gender' => $this->input->post('txt_gender'),
+                   'txt_relation' => $this->input->post('member_relation'),
                    'txt_email' => $this->input->post('txt_email'),
-				   'txt_phone' => $this->input->post('txt_phone'),
-				   'txt_added_by' => $int_user_id,
-					'txt_pan_no' => $this->input->post('txt_pan'));
+		   'txt_phone' => $this->input->post('txt_phone'),
+                   'txt_added_by' => $int_user_id,
+                   'txt_member_password'=>$password,
+                   'txt_member_key'=>$key,
+		   'txt_pan_no' => $this->input->post('txt_pan'));
                     //'dt_date' => date('Y-m-d',strtotime($this->input->post('date'))));
 					return $this->db->insert("tab_members",$data);
 	}
