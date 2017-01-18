@@ -1,3 +1,8 @@
+<script src="<?php echo base_url();?>/assets/js/model.js"></script>
+<script src="<?php echo base_url();?>/assets/js/model1.js"></script>
+<link href="<?php echo base_url();?>/assets/css/css.css" rel="stylesheet" type="text/css" />
+
+
 <script>
         function delete_record(id)
     {
@@ -28,7 +33,7 @@
                         			<!-- <p class="text-muted m-b-30 font-13">
 										Most common form control, text-based input fields. Includes support for all HTML5 types: <code>text</code>, <code>password</code>, <code>datetime</code>, <code>datetime-local</code>, <code>date</code>, <code>month</code>, <code>time</code>, <code>week</code>, <code>number</code>, <code>email</code>, <code>url</code>, <code>search</code>, <code>tel</code>, and <code>color</code>.
 									</p> -->
-									<table class="table">
+                                            <table class="table">
 									<thead>
 										<th>Member Name </th>
 										<th>Designation</th>
@@ -37,7 +42,7 @@
 										<th>Email </th>
 										<th>Phone Number</th>
 										<th>Pan no.</th>
-                                                                                <th>Action</th>
+                                                                                <th style="text-align: center">Action</th>
 									</thead>
 									<tbody>
 									<?php if(count($member_list)){
@@ -50,7 +55,7 @@
 									<td><?php echo $each['txt_email']; ?></td>
 									<td><?php echo $each['txt_phone']; ?></td>
 									<td><?php echo $each['txt_pan_no']; ?></td>
-									<td><a href="<?php echo site_url().'/Member/edit_member/'.$each['int_member_id'] ?>" class="btn btn-primary">Edit</a> <a href="javascript:void(0)" class="btn btn-primary" onclick="delete_record(<?php echo $each['int_member_id'] ;?>)">Delete</a></td>
+									<td><a href="<?php echo site_url().'/Member/edit_member/'.$each['int_member_id'] ?>" class="btn btn-primary">Edit</a> <a href="javascript:void(0)" class="btn btn-primary" onclick="delete_record(<?php echo $each['int_member_id'] ;?>)">Delete</a> <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Device Assign</button></td>
 									</tr>
 									<?php }} else{ ?>
 									<tr>
@@ -66,3 +71,26 @@
         </div>
         </div>
         </div>
+
+    
+     <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Modal Header</h4>
+        </div>
+        <div class="modal-body">
+          <p>Some text in the modal.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+</div>
