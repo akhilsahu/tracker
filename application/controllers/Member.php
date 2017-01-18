@@ -101,6 +101,11 @@ function logout(){
               
 	 
 }
+function assign()
+{
+    $data['load_page']='assign';
+    $this->load->view('Client/view_page',$data);
+}
 }
 
 ?>
