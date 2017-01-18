@@ -25,6 +25,24 @@
 	                                                <?php echo form_error('client_name');?>
 	                                                </div>
 	                                            </div>
+                                                    <div class="form-group"> 					
+	                                                <label class="col-md-2 control-label">Client Email</label>
+	                                                <div class="col-md-7">
+	                                                    <input type="text" class="form-control" value="" name="client_email">
+	                                                </div>
+	                                                <div class="col-md-3">
+	                                                <?php echo form_error('client_email');?>
+	                                                </div>
+	                                            </div>
+                                                    <div class="form-group"> 					
+	                                                <label class="col-md-2 control-label">Client Mobile Number</label>
+	                                                <div class="col-md-7">
+	                                                    <input type="text" class="form-control" value="" name="client_mobile">
+	                                                </div>
+	                                                <div class="col-md-3">
+	                                                <?php echo form_error('client_mobile');?>
+	                                                </div>
+	                                            </div>
 	                                             <div class="form-group">
 	                                                <label class="col-sm-2 control-label">Client Address</label>
 	                                                <div class="col-md-7">
