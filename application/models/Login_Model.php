@@ -112,17 +112,18 @@
 
   public function update_client_data($int_user_id){
   	$data = array(  
-                   'txt_client_name' => $this->input->post('client_name'),
+                   'txt_client_name' => $this->input->post('txt_client_name'),
+				   'txt_mobile' => $this->input->post('client_phone'),
+				   'txt_client_email' => $this->input->post('txt_client_email'),
                    'txt_plan_of_client' => $this->input->post('plan_of_client'),
-                   'txt_client_type' => $this->input->post('client_type'),
+                   'txt_client_type' => $this->input->post('txt_type'),
                     'txt_no_of_member' => $this->input->post('no_of_member'),
-                    'txt_added_by' => $int_user_id,
                     'dt_date' => date('Y-m-d',strtotime($this->input->post('date'))));
 
   	$this->db->where('txt_added_by',$int_user_id);
-  	$this->db->where('int_client_id',$this->input->post('update_id'));
-    $this->db->update("tab_clients",$data);
-  	 echo $this->db->last_query();
+  	$this->db->where('int_client_id',$this->input->post('user_id'));
+    return $this->db->update("tab_clients",$data);
+  	// echo $this->db->last_query();
   	
 
   	           

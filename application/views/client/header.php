@@ -44,7 +44,7 @@
                 <!-- LOGO -->
                 <div class="topbar-left">
                     <div class="text-center">
-                        <a href="index.html" class="logo"><i class="icon-magnet icon-c-logo"></i><span>SAAYA</span></a>
+                        <a href="#" class="logo"><i class="icon-magnet icon-c-logo"></i><span>SAAYA</span></a>
                     </div>
                 </div>
 
@@ -52,6 +52,7 @@
                 <div class="navbar navbar-default" role="navigation">
                     <div class="container">
                         <div class="">
+    
                             <div class="pull-left">
                                 <button class="button-menu-mobile open-left">
                                     <i class="ion-navicon"></i>
