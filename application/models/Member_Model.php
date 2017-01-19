@@ -16,6 +16,13 @@
               
   	           
   }
+  public function device_list($id)
+  {
+        	$q=$this->db->query("SELECT *
+                         FROM tab_device 
+                         WHERE txt_added_by = '$id' and int_is_deleted!=1");
+  	return $data =$q->result_array();
+  }
   public function get_Member($id){
         $query=$this->db->query("SELECT *
                                  FROM tab_members 

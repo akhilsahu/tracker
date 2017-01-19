@@ -37,7 +37,7 @@
 	                                                </div>
 	                                            </div>
 	                                             <div class="form-group">
-	                                                <label class="col-sm-2 control-label">Plan Of CLient</label>
+	                                                <label class="col-sm-2 control-label">Plan Of Client</label>
 	                                                <div class="col-sm-7">
 	                                                    <select class="form-control" name="plan_of_client">
 	                                                         <?php foreach($plan_of_client_val as $each){ ?>

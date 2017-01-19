@@ -76,6 +76,7 @@ class Member extends CI_Controller{
 
 function list_member(){
 	$data['member_list'] = $this->Member_Model->member_list($this->user[0]['int_user_id']);
+        $data['device_list'] = $this->Member_Model->device_list($this->user[0]['int_user_id']);
     $data['load_page']='view_members';
 
 	$this->load->view('client/view_page',$data);

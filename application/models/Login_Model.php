@@ -52,7 +52,7 @@
                                        
 					//echo $query1?"12":"13";exit;
 					
-					$seed = str_split('abcdefghijklmnopqrstuvwxyz'
+		$seed = str_split('abcdefghijklmnopqrstuvwxyz'
 		                 .'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 		                 .'0123456789!@#$%^&*'); 
 		shuffle($seed); 
