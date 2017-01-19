@@ -49,13 +49,15 @@ class Client extends CI_Controller{
 
 	function update_client(){
 	$this->load->library('form_validation');
-    $this->form_validation->set_rules('client_name', 'Client Name', 'required');
+	$this->form_validation->set_rules('txt_type', 'Client Type', 'required');
+    $this->form_validation->set_rules('txt_client_name', 'Client Name', 'required');
     $this->form_validation->set_rules('plan_of_client', 'Plan Of Client', 'required');
-    $this->form_validation->set_rules('client_type', 'Client Type', 'required');
+	$this->form_validation->set_rules('txt_client_email', 'Email Of Client', 'required');
+    $this->form_validation->set_rules('client_phone', 'Phone Number', 'required');
     $this->form_validation->set_rules('no_of_member', 'Number Of Member', 'required');
     $this->form_validation->set_rules('date', 'Date', 'required');
     $this->form_validation->set_error_delimiters("<p class='text-danger'>","</p>");
-   
+    $data['plan_of_client_val'] = $this->Login_Model->plan_of_client();
     if ($this->form_validation->run() == TRUE)
                 {
                 	$executed =  $this->Login_Model->update_client_data($this->user[0]['int_user_id']);

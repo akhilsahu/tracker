@@ -6,7 +6,7 @@
 
         <link rel="shortcut icon" href="assets/images/favicon_1.ico">
 
-        <title>Ubold - Responsive Admin Dashboard Template</title>
+        <title>Saaya</title>
 
         <!--Morris Chart CSS -->
 	<link rel="stylesheet" href="<?php echo base_url();?>/assets/plugins/morris/morris.css">
@@ -44,7 +44,7 @@
                 <!-- LOGO -->
                 <div class="topbar-left">
                     <div class="text-center">
-                        <a href="index.html" class="logo"><i class="icon-magnet icon-c-logo"></i><span>Ub<i class="md md-album"></i>ld</span></a>
+                        <a href="index.html" class="logo"><i class="icon-magnet icon-c-logo"></i><span>Saaya</span></a>
                     </div>
                 </div>
 
