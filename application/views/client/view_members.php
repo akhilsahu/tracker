@@ -84,7 +84,8 @@
           <center>  <h4 class="modal-title"><a href="#" ><span>SAAYA</span></a></h4></center>
         </div>
         <div class="modal-body">
-          <form class="form-horizontal" role="form" action="<?php echo site_url('Member/')?>" method="post">                                    
+          <form class="form-horizontal" role="form" action="<?php echo site_url('Member/assign')?>" method="post"> 
+              <input  type="hidden" name="member_id" value="<?php echo $member_list[0]['int_member_id'];?>"/>
                                                         <div class="form-group"> 
 							<label class="col-md-2 control-label">Member Name </label>
 	                                                <div class="col-md-7">
@@ -97,10 +98,10 @@
 	                                             <div class="form-group">
 	                                                <label class="col-sm-2 control-label">Device Id</label>
 	                                                <div class="col-md-7">
-                                                            <select class="form-control">
+                                                            <select class="form-control" name="device_id">
                                                                 <option>Select Device</option>
                                                                   <?php foreach($device_list as $each){ ?>
-                           <option value="<?php echo $each['txt_token']; ?>"><?php echo $each['txt_manufacturer_name']."|".$each['txt_imei']; ?></option>
+                           <option value="<?php echo $each['int_device_id']; ?>"><?php echo $each['txt_manufacturer_name']."|".$each['txt_imei']; ?></option>
     <?php } ?>
 
                                                             </select>
@@ -125,8 +126,8 @@
 												        	</div>
 												        </div>
 												        <div class="col-md-3">
-			                                                <?php echo form_error('date');?>
-			                                            </div>
+                                                                                                            <?php echo form_error('date');?>
+                                                                                                        </div>
 												        <script>
 												  $(function() {
 												    $( "#datepicker1" ).datepicker();

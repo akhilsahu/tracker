@@ -103,8 +103,7 @@
                                                  </div>
                                               </div>
                                            </a>
-
-                                           <!-- list item-->
+                     <!-- list item-->  
                                            <a href="javascript:void(0);" class="list-group-item">
                                               <div class="media">
                                                  <div class="pull-left p-r-10">

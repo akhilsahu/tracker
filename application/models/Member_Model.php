@@ -80,16 +80,9 @@
 					$this->db->where('txt_added_by',$this->input->post('id_added'));
 					return $this->db->update("tab_members",$data);     
   }
-
-  
-  
-  public function delete_member($id,$added_by){
+ public function delete_member($id,$added_by){
 	   $query=$this->db->query("Update tab_members SET int_is_deleted=1 WHERE int_member_id = $id and txt_added_by=$added_by");
-        return  $query;
-	/*$data = array('int_is_deleted' => '1);
-  	$this->db->where('int_member_id',$id);
-	$this->db->where('txt_added_by',$added_by);
-  	return $this->db->update("tab_members",$data);*/
+           return  $query;
     }
 
   /*  public function record($user)
@@ -109,8 +102,27 @@
   	           
   }
 */ 
-	
+public function device_assign($id)
+{
+    $sql="select * from tab_device_assignment";
+    $query=$this->db->query($sql);
+    $result=$query->result_array();
+    //print_r($result);
+    $data= array('int_device_id'=>$this->input->post('device_id'),
+        'int_member_id'=>$this->input->post('member_id'),
+        'dt_assignment_date'=>$this->input->post('date'));
+    //print_r($data);die;
+    
+    if(($result[0]['int_device_id']==$data['int_device_id'])&& ($result[0]['int_member_id']==$data['int_member_id']))
+    {
+        echo '<script>alert("Device is already assigned..!");</script>';
+    }
+ else {
+        $result= $this->db->insert("tab_device_assignment",$data);
+        print_r($result);exit;
+    }
+        
+            
 }
-
-
+}
 ?>
