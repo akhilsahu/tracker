@@ -18,7 +18,6 @@
 														<option value="Personal">Personal</option>
 	                                                        <option value="Commercial">Commercial</option>
 	                                                    </select>
-	                                                   
 	                                                </div>
 	                                              <div class="col-md-3">
 	                                                <?php echo form_error('txt_gender');?>

@@ -113,6 +113,13 @@ function logout(){
               
 	 
 }
+public function change_password()
+{
+    //echo "change_appp";exit;
+    $this->Login_Model->password_change($this->user[0]['int_user_id']);
+    redirect('/client/list_clients');
+    
+}
 }
 
 ?>

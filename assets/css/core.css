@@ -2028,3 +2028,6 @@ body.fixed-left .side-menu.left {
 .waves-block {
   display: block;
 }
+.logo i{
+    margin-right: 5%;
+}

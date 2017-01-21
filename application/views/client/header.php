@@ -44,7 +44,7 @@
                 <!-- LOGO -->
                 <div class="topbar-left">
                     <div class="text-center">
-                        <a href="#" class="logo"><i class="icon-magnet icon-c-logo"></i><span>SAAYA</span></a>
+                        <a href="#" class="logo"><i class="fa fa-map-marker"></i><span>SAAYA</span></a>
                     </div>
                 </div>
 
@@ -180,7 +180,7 @@
                                     <a href="" class="dropdown-toggle profile" data-toggle="dropdown" aria-expanded="true"><img src="<?php echo base_url();?>assets/images/users/avatar-1.jpg" alt="user-img" class="img-circle"> </a>
                                     <ul class="dropdown-menu">
                                         <li><a href="<?php echo site_url().'/profile/edit_profile/';?>"><i class="ti-user m-r-5"></i> Profile</a></li>
-                                        <li><a href="javascript:void(0)"><i class="ti-settings m-r-5"></i> Settings</a></li>
+                                        <li> <button type="button" class="btn" data-toggle="modal" data-target="#myModal1"><i class="ti-settings m-r-5"></i>Change Password</button></li>
                                         <li><a href="javascript:void(0)"><i class="ti-lock m-r-5"></i> Lock screen</a></li>
                                         <li><a href="<?php echo site_url().'/Member/logout/';?>"><i class="ti-power-off m-r-5"></i> Logout</a></li>
                                     </ul>
@@ -193,4 +193,76 @@
             </div>
             <!-- Top Bar End -->
 
+            
+             <div class="modal fade" id="myModal1" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <center>  <h4 class="modal-title"><a href="#" ><span>Change Password</span></a></h4></center>
+        </div>
+          <div class="modal-body">
+          <form class="form-horizontal" role="form" action="<?php echo site_url('Client/change_password')?>" method="post"> 
+              <input  type="hidden" name="member_id" value="<?php ?>"/>
+                                                        <div class="form-group"> 
+                                                            <label class="col-md-4 control-label">Old Password<span style="color: red;">*</span> </label>
+	                                                <div class="col-md-7">
+	                                                    <input type="password" class="form-control"  name="old_password" placeholder="Enter Your old Password">
+	                                                </div>
+	                                                <div class="col-md-3">
+	                                                <?php echo form_error('old_password');?>
+	                                                </div>
+	                                            </div>
+              <div class="form-group"> 
+							<label class="col-md-4 control-label">New Password <span style="color: red;">*</span> </label>
+	                                                <div class="col-md-7">
+	                                                    <input type="password" class="form-control"  name="new_password" id="new_password" placeholder="Enter Your New Password">
+	                                                </div>
+	                                                <div class="col-md-3">
+	                                                <?php echo form_error('new_password');?>
+	                                                </div>
+	                                            </div>
+              <div class="form-group"> 
+							<label class="col-md-4 control-label">Confirm New Password <span style="color: red;">*</span> </label>
+	                                                <div class="col-md-7">
+	                                                    <input type="password" class="form-control" id="confirm_new_password"  name="confirm_new_password" placeholder="Enter Your New Password">
+	                                                </div>
+	                                                <div class="col-md-3">
+	                                                <?php echo form_error('new_password');?>
+	                                                </div>
+	                                            </div>
+	                                   
+              
+	                                             <div class="form-group">
+                                                 <div class="col-lg-10 col-lg-offset-2">
+                                                 <button type="reset" class="btn btn-default">Cancel</button>
+                                                 <button type="submit" class="btn btn-primary" >Submit</button>
+                                                 </div>
+                                                 </div>
+	                                            
+	     
+	                           
+	             </form>
+        
 
+          </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+</div>
+
+        <script >
+        if ($("#new_password")!=$("confirm_new_password"));
+        {
+            
+        }
+        
+        
+        </script>
