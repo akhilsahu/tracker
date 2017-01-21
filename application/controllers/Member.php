@@ -59,8 +59,7 @@ class Member extends CI_Controller{
    
     if ($this->form_validation->run() == TRUE)
                 {
-					
-                	$executed =  $this->Member_Model->update_member_data($this->user[0]['int_user_id']);
+			$executed =  $this->Member_Model->update_member_data($this->user[0]['int_user_id']);
                 	if($executed){
                 		 redirect('/Member/list_member');
                 	}
@@ -76,6 +75,7 @@ class Member extends CI_Controller{
 
 function list_member(){
 	$data['member_list'] = $this->Member_Model->member_list($this->user[0]['int_user_id']);
+        $data['device_list'] = $this->Member_Model->device_list($this->user[0]['int_user_id']);
     $data['load_page']='view_members';
 
 	$this->load->view('client/view_page',$data);
@@ -103,8 +103,13 @@ function logout(){
 }
 function assign()
 {
+    $this->load->library('form_validation');
+    $this->form_validation->set_rules('member_name', 'Member Name', 'required');
+    $this->form_validation->set_rules('device_id', 'Designation', 'required');
+    $this->form_validation->set_rules('date', 'Date', 'required');
     $data['load_page']='assign';
-    $this->load->view('Client/view_page',$data);
+    $data['assign']=$this->Member_Model->device_assign($this->user[0]['int_user_id']);
+    print_r($data['assign']);
 }
 }
 

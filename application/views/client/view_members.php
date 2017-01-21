@@ -1,5 +1,6 @@
-<script src="<?php echo base_url();?>/assets/js/model.js"></script>
-<script src="<?php echo base_url();?>/assets/js/model1.js"></script>
+<?php// print_r($device_list);die;?>
+<!--<script src="<?php echo base_url();?>/assets/js/model.js"></script>
+<script src="<?php echo base_url();?>/assets/js/model1.js"></script>-->
 <link href="<?php echo base_url();?>/assets/css/css.css" rel="stylesheet" type="text/css" />
 
 
@@ -29,7 +30,7 @@
 		<div class="row">
                         	<div class="col-sm-12">
                         		<div class="card-box">
-                                            <center><h4 class="m-t-0 header-title"><b>Our Clients</b></h4></center>
+                                            <center><h4 class="m-t-0 header-title"><b>Our Member(s)</b></h4></center>
                         			<!-- <p class="text-muted m-b-30 font-13">
 										Most common form control, text-based input fields. Includes support for all HTML5 types: <code>text</code>, <code>password</code>, <code>datetime</code>, <code>datetime-local</code>, <code>date</code>, <code>month</code>, <code>time</code>, <code>week</code>, <code>number</code>, <code>email</code>, <code>url</code>, <code>search</code>, <code>tel</code>, and <code>color</code>.
 									</p> -->
@@ -60,7 +61,7 @@
 									<?php }} else{ ?>
 									<tr>
 									<td colspan="3">
-									No Records Forund
+									No Records Found
 									</td>
 									</tr>
 									<?php }  ?>
@@ -80,10 +81,70 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Modal Header</h4>
+          <center>  <h4 class="modal-title"><a href="#" ><span>SAAYA</span></a></h4></center>
         </div>
         <div class="modal-body">
-          <p>Some text in the modal.</p>
+          <form class="form-horizontal" role="form" action="<?php echo site_url('Member/assign')?>" method="post"> 
+              <input  type="hidden" name="member_id" value="<?php echo $member_list[0]['int_member_id'];?>"/>
+                                                        <div class="form-group"> 
+							<label class="col-md-2 control-label">Member Name </label>
+	                                                <div class="col-md-7">
+	                                                    <input type="text" class="form-control" value="<?php echo $member_list[0]['txt_name']; ?>" name="member_name">
+	                                                </div>
+	                                                <div class="col-md-3">
+	                                                <?php echo form_error('member_name');?>
+	                                                </div>
+	                                            </div>
+	                                             <div class="form-group">
+	                                                <label class="col-sm-2 control-label">Device Id</label>
+	                                                <div class="col-md-7">
+                                                            <select class="form-control" name="device_id">
+                                                                <option>Select Device</option>
+                                                                  <?php foreach($device_list as $each){ ?>
+                           <option value="<?php echo $each['int_device_id']; ?>"><?php echo $each['txt_manufacturer_name']."|".$each['txt_imei']; ?></option>
+    <?php } ?>
+
+                                                            </select>
+	                                                  <!--  <input type="text" class="form-control" value="" name="txt_designation">-->
+	                                                </div>
+	                                              <div class="col-md-3">
+	                                                <?php echo form_error('txt_designation');?>
+	                                               </div>
+													
+	                                            </div>
+	                                                 
+												<div class="form-group">
+	                                             <label class="col-md-2 control-label">Date</label>
+												        <div class='col-md-7'>
+												            <div class="form-group">
+												                <div class='input-group date'>	
+												                    <input type='text' class="form-control" id="datepicker1" name="date" />
+												                    <span class="input-group-addon">
+												                        <span class="glyphicon glyphicon-calendar"></span>
+												                    </span>
+												                </div>												           
+												        	</div>
+												        </div>
+												        <div class="col-md-3">
+                                                                                                            <?php echo form_error('date');?>
+                                                                                                        </div>
+												        <script>
+												  $(function() {
+												    $( "#datepicker1" ).datepicker();
+												  });
+												  </script>
+												    </div>
+              
+	                                             <div class="form-group">
+                                                 <div class="col-lg-10 col-lg-offset-2">
+                                                 <button type="reset" class="btn btn-default">Cancel</button>
+                                                 <button type="submit" class="btn btn-primary" >Submit</button>
+                                                 </div>
+                                                 </div>
+	                                            
+	     
+	                           
+	                                        </form>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

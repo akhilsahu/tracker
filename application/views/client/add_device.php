@@ -8,7 +8,7 @@
 		<div class="row">
                         	<div class="col-sm-12">
                         		<div class="card-box">
-                        			<h4 class="m-t-0 header-title"><b>Add Device</b></h4>
+                                            <center><h4 class="m-t-0 header-title"><b>Add Device</b></h4></center>
                         			<!-- <p class="text-muted m-b-30 font-13">
 										Most common form control, text-based input fields. Includes support for all HTML5 types: <code>text</code>, <code>password</code>, <code>datetime</code>, <code>datetime-local</code>, <code>date</code>, <code>month</code>, <code>time</code>, <code>week</code>, <code>number</code>, <code>email</code>, <code>url</code>, <code>search</code>, <code>tel</code>, and <code>color</code>.
 									</p> -->

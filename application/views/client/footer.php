@@ -1,5 +1,5 @@
 <footer class="footer">
-                    2015 © Ubold.
+                    SAAYA
                 </footer>
 
 </div>

@@ -6,7 +6,7 @@
 
         <link rel="shortcut icon" href="assets/images/favicon_1.ico">
 
-        <title>Saaya</title>
+        <title>SAAYA|Admin Panel</title>
 
         <!--Morris Chart CSS -->
 	<link rel="stylesheet" href="<?php echo base_url();?>/assets/plugins/morris/morris.css">
@@ -44,7 +44,7 @@
                 <!-- LOGO -->
                 <div class="topbar-left">
                     <div class="text-center">
-                        <a href="index.html" class="logo"><i class="icon-magnet icon-c-logo"></i><span>Saaya</span></a>
+                        <a href="#" class="logo"><i class="icon-magnet icon-c-logo"></i><span>SAAYA</span></a>
                     </div>
                 </div>
 
@@ -52,6 +52,7 @@
                 <div class="navbar navbar-default" role="navigation">
                     <div class="container">
                         <div class="">
+    
                             <div class="pull-left">
                                 <button class="button-menu-mobile open-left">
                                     <i class="ion-navicon"></i>
@@ -102,8 +103,7 @@
                                                  </div>
                                               </div>
                                            </a>
-
-                                           <!-- list item-->
+                     <!-- list item-->  
                                            <a href="javascript:void(0);" class="list-group-item">
                                               <div class="media">
                                                  <div class="pull-left p-r-10">
@@ -179,7 +179,7 @@
                                 <li class="dropdown">
                                     <a href="" class="dropdown-toggle profile" data-toggle="dropdown" aria-expanded="true"><img src="<?php echo base_url();?>assets/images/users/avatar-1.jpg" alt="user-img" class="img-circle"> </a>
                                     <ul class="dropdown-menu">
-                                        <li><a href="<?php echo site_url().'/Profile/edit_profile/';?>"><i class="ti-user m-r-5"></i> Profile</a></li>
+                                        <li><a href="<?php echo site_url().'/profile/edit_profile/';?>"><i class="ti-user m-r-5"></i> Profile</a></li>
                                         <li><a href="javascript:void(0)"><i class="ti-settings m-r-5"></i> Settings</a></li>
                                         <li><a href="javascript:void(0)"><i class="ti-lock m-r-5"></i> Lock screen</a></li>
                                         <li><a href="<?php echo site_url().'/Member/logout/';?>"><i class="ti-power-off m-r-5"></i> Logout</a></li>
