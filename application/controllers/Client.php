@@ -47,6 +47,8 @@ class Client extends CI_Controller{
 
 }
 
+
+
 	function update_client(){
 	$this->load->library('form_validation');
 	$this->form_validation->set_rules('txt_type', 'Client Type', 'required');

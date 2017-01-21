@@ -5,102 +5,53 @@ class Profile extends CI_Controller{
     {
         parent::__construct();
        // $this->load->model('Member_Model');
-		//$this->load->model('Login_Model');
+		$this->load->model('Profile_Model');
         $this->user=$this->session->userdata('user');
+			//print_r($this->user);exit;
     }
 
     public function edit_profile(){
-	$data['load_page']='profile';
-	$this->load->view('client/view_page',$data);
+		$data['pro'] = $this->Profile_Model->get_all_client($this->user[0]['int_user_id']);
+		if($data['pro']['int_client_id']!="")
+		{
+			$data['detail'] = $this->Profile_Model->get_all_client_detail($data['pro']['int_client_id']);
+		//print_r($this->user[0]['int_user_id']);exit;
+		$data['load_page']='profile';
+		$this->load->view('client/view_page',$data);
+		}		
 }
 
-   /* function insert_member(){
+ function update_client_detail(){
+		
 	$this->load->library('form_validation');
-    $this->form_validation->set_rules('member_name', 'Member Name', 'required');
-    $this->form_validation->set_rules('txt_designation', 'Designation', 'required');
-    $this->form_validation->set_rules('txt_gender', 'Gender', 'required');
-	$this->form_validation->set_rules('member_relation', 'Relation', 'required');
-	$this->form_validation->set_rules('txt_email', 'Email', 'required');
-	$this->form_validation->set_rules('txt_phone', 'Mobile No.', 'required');
-    $this->form_validation->set_rules('txt_pan', 'PAN No.', 'required');
-    $this->form_validation->set_rules('date', 'Date', 'required');
-    $this->form_validation->set_error_delimiters("<p class='text-danger'>","</p>");
-   
-    if ($this->form_validation->run() == TRUE)
-                {
-					//print_r($this->user[0]['int_user_id']);exit;
-					$executed=$this->Member_Model->insert_member_data($this->user[0]['int_user_id']);
-					if($executed)
-					{
-						redirect('/Member/list_member');
-					}
 
-               }
-                else
-                {
-					//echo 'hi';
-                    $data['load_page']='add_member';
-	                $this->load->view('Client/view_page',$data);
-                }
-
-}
-
-	function update_member(){
-	$this->load->library('form_validation');
-	$this->form_validation->set_rules('member_name', 'Member Name', 'required');
-    $this->form_validation->set_rules('txt_designation', 'Designation', 'required');
-    $this->form_validation->set_rules('txt_gender', 'Gender', 'required');
-	$this->form_validation->set_rules('member_relation', 'Relation', 'required');
-	$this->form_validation->set_rules('txt_email', 'Email', 'required');
-	$this->form_validation->set_rules('txt_phone', 'Mobile No.', 'required');
-    $this->form_validation->set_rules('txt_pan', 'PAN No.', 'required');
-    //$this->form_validation->set_rules('date', 'Date', 'required');
+   //$this->form_validation->set_rules('client_name', 'Client Name', 'required');
+    //$this->form_validation->set_rules('plan_of_client', 'Plan Of Client', 'required');
+   // $this->form_validation->set_rules('txt_client_email', 'Client Email', 'required');
+	//$this->form_validation->set_rules('client_phone', 'Client Phone', 'required');
+	//$this->form_validation->set_rules('txt_gender', 'Client Gender', 'required');
+	$this->form_validation->set_rules('txt_address', 'Client Addess', 'required');
+    $this->form_validation->set_rules('txt_gender', 'Number Of Member', 'required');
     $this->form_validation->set_error_delimiters("<p class='text-danger'>","</p>");
    
     if ($this->form_validation->run() == TRUE)
                 {
 					
-                	$executed =  $this->Member_Model->update_member_data($this->user[0]['int_user_id']);
-                	if($executed){
-                		 redirect('/Member/list_member');
-                	}
+							$this->Profile_Model->update_client_detail($this->user[0]['int_user_id']);	
+							echo 'del';
+					//die();
+                	
+					//redirect('/Client/list_clients','refersh');
 
                }
                 else
                 {
-                    $data['load_page']='edit_member';
-	                 $this->load->view('client/view_page',$data);
+                    echo 'not updated';
                 }
 
 }
+   
 
-function list_member(){
-	$data['member_list'] = $this->Member_Model->member_list($this->user[0]['int_user_id']);
-    $data['load_page']='view_members';
-
-	$this->load->view('client/view_page',$data);
-
-}
-
-function edit_member($edit_id){
-	
-	$data['edit_member'] = $this->Member_Model->get_Member($edit_id);
-	 $data['load_page']='edit_member';
-	$this->load->view('Client/view_page',$data);
-}
-
-function delete_member($edit_id){
-	$data=$this->Member_Model->delete_member($edit_id,$this->user[0]['int_user_id']);
-	
-	//redirect('/Member/list_member');
-}
-
-function logout(){
- $this->session->sess_destroy();
- redirect('/Welcome','refresh');
-              
-	 
-}*/
 }
 
 ?>

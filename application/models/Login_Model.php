@@ -39,20 +39,17 @@
   }
 
   public function insert_client_data($int_user_id){
-  	$data = array(
-                   'txt_client_name' => $this->input->post('client_name'),
-                   'txt_plan_of_client' => $this->input->post('plan_of_client'),
-				   'txt_mobile' => $this->input->post('client_phone'),
-				   'txt_client_type' => $this->input->post('txt_type'),
-				   'txt_no_of_member' => $this->input->post('no_of_member'),
-				   'txt_client_email' => $this->input->post('txt_client_email'),
-                    'txt_added_by' => $int_user_id,
-                    'dt_date' => date('Y-m-d',strtotime($this->input->post('date'))));
-					$query1=$this->db->insert("tab_clients",$data);
-                                       
-					//echo $query1?"12":"13";exit;
-					
-					$seed = str_split('abcdefghijklmnopqrstuvwxyz'
+	  
+	  $target_dir = "upload/client/";
+	  $target_file = $target_dir . basename($_FILES["txt_logo"]["name"]);
+	 
+	  	  $uploadOk = 1;
+	  $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
+	//  print_r($imageFileType);exit;
+
+	  if($imageFileType == "jpg" || $imageFileType == "png" || $imageFileType == "jpeg" || $imageFileType == "gif" ) {
+	  move_uploaded_file($_FILES["txt_logo"]["tmp_name"], $target_file);    
+	  $seed = str_split('abcdefghijklmnopqrstuvwxyz'
 		                 .'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 		                 .'0123456789!@#$%^&*'); 
 		shuffle($seed); 
@@ -74,11 +71,30 @@
             // autogenerate password will be inserted in database as well as send to mail
                    'txt_password' =>$rand, /*$this->input->post('plan_of_client')*/
             
-                   'int_group_id' => '3',
+                   'int_group_id' => '2',
             'dt_date' => date('Y-m-d',strtotime($this->input->post('date'))));
 			$this->db->insert("tab_users",$data1);
-	
-                        
+		 $lastid=$this->db->insert_id();
+		
+			 //print_r( $target_file);exit;
+			
+  	$data = array(
+                   'txt_client_name' => $this->input->post('client_name'),
+                   'txt_plan_of_client' => $this->input->post('plan_of_client'),
+				   'txt_mobile' => $this->input->post('client_phone'),
+				   'txt_client_type' => $this->input->post('txt_type'),
+				   'txt_no_of_member' => $this->input->post('no_of_member'),
+				   'txt_client_email' => $this->input->post('txt_client_email'),
+                    'txt_added_by' => $int_user_id,
+					'txt_client_address'=>$this->input->post('txt_address'),
+				   'txt_gender'=>$this->input->post('txt_gender'),
+				   'txt_client_logo'=>$target_file,
+                    'dt_date' => date('Y-m-d',strtotime($this->input->post('date'))),
+					'int_user_id' => $lastid);
+					$query1=$this->db->insert("tab_clients",$data);
+                                  } 
+					//echo $query1?"12":"13";exit;
+					
                          /******Email Sending Code start*****/
                                          
          $to = "txt_client_email";
@@ -106,11 +122,21 @@
                                         /******Email Sending Code start*****/
         
                 }
-        
-        
+				
+				
   
-
   public function update_client_data($int_user_id){
+	  
+	  if($_FILES["txt_logo"]["name"]!=''){
+		   $target_dir = "upload/client/";
+	  $target_file = $target_dir . basename($_FILES["txt_logo"]["name"]);
+	 print_r($target_file);exit;
+	  	  $uploadOk = 1;
+	  $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
+	
+
+	  if($imageFileType == "jpg" || $imageFileType == "png" || $imageFileType == "jpeg" || $imageFileType == "gif" ) {
+	  move_uploaded_file($_FILES["txt_logo"]["tmp_name"], $target_file);    
   	$data = array(  
                    'txt_client_name' => $this->input->post('txt_client_name'),
 				   'txt_mobile' => $this->input->post('client_phone'),
@@ -118,16 +144,34 @@
                    'txt_plan_of_client' => $this->input->post('plan_of_client'),
                    'txt_client_type' => $this->input->post('txt_type'),
                     'txt_no_of_member' => $this->input->post('no_of_member'),
+					'txt_client_address'=>$this->input->post('txt_address'),
+				   'txt_gender'=>$this->input->post('txt_gender'),
+				   'txt_client_logo'=>$target_file,
                     'dt_date' => date('Y-m-d',strtotime($this->input->post('date'))));
 
   	$this->db->where('txt_added_by',$int_user_id);
   	$this->db->where('int_client_id',$this->input->post('user_id'));
     return $this->db->update("tab_clients",$data);
-  	// echo $this->db->last_query();
-  	
+	  // echo $this->db->last_query();
+	  }}
+	  else
+	  {
+		  $data = array(  
+                   'txt_client_name' => $this->input->post('txt_client_name'),
+				   'txt_mobile' => $this->input->post('client_phone'),
+				   'txt_client_email' => $this->input->post('txt_client_email'),
+                   'txt_plan_of_client' => $this->input->post('plan_of_client'),
+                   'txt_client_type' => $this->input->post('txt_type'),
+                    'txt_no_of_member' => $this->input->post('no_of_member'),
+					'txt_client_address'=>$this->input->post('txt_address'),
+				   'txt_gender'=>$this->input->post('txt_gender'),
+                    'dt_date' => date('Y-m-d',strtotime($this->input->post('date'))));
 
-  	           
-  	           
+  	$this->db->where('txt_added_by',$int_user_id);
+  	$this->db->where('int_client_id',$this->input->post('user_id'));
+    return $this->db->update("tab_clients",$data);
+	  }
+           
   }
 
   public function get_client($id,$int_user_id){
@@ -136,6 +180,7 @@
                                  WHERE int_client_id = $id and txt_added_by=$int_user_id");
         return $query->row_array();
     }
+	
   
   public function delete_client($id,$int_user_id){
       $sql="update tab_clients SET int_is_deleted=1 where int_client_id=$id and txt_added_by=$int_user_id";
@@ -148,7 +193,6 @@
 
     public function record($user)
     {
-       
         $id=$user[0]['int_user_id'];
        // echo $id;exit;
         $query=$this->db->query("select * from tab_users where int_user_id=$id");

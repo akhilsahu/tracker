@@ -90,7 +90,106 @@
 	                                                </div>
 	                                            </div>
 																								
-	                                                                                                               
+	                                                     <div class="form-group">
+	                                                <label class="col-md-2 control-label">Client Address</label>
+	                                                <div class="col-md-7">
+	                                                    <input type="text" class="form-control" value="<?php echo $edit_clients['txt_no_of_member']; ?>" name="txt_address">
+	                                                </div>
+	                                            	<div class="col-md-3">
+	                                                <?php //echo //form_error('txt_address');?>
+	                                                </div>
+	                                            </div>                                                               
+	                                             <?php 
+												if($edit_clients['txt_gender']=='Male'){
+												?>
+	                                            <div class="form-group">
+	                                                <label class="col-md-2 control-label">Gender</label>
+	                                                <div class="col-md-7">
+													<select class="form-control" name="txt_gender">
+													<option>Select</option>
+													<option Value="Male" selected>Male</option>
+													<option Value="Female">Female</option>
+	                                                </select>
+	                                                </div>
+	                                            	<div class="col-md-3">
+	                                                <?php //echo form_error('txt_gender');?>
+	                                                </div>
+	                                            </div>  
+												<?php 
+													}else if($edit_clients['txt_gender']=='Female'){
+												?>
+												 <div class="form-group">
+	                                                <label class="col-md-2 control-label">Gender</label>
+	                                                <div class="col-md-7">
+													<select class="form-control" name="txt_gender">
+													<option>Select</option>
+													<option Value="Male" >Male</option>
+													<option Value="Female" selected>Female</option>
+	                                                    </select>
+	                                                </select>
+	                                                </div>
+	                                            	<div class="col-md-3">
+	                                                <?php// echo form_error('txt_gender');?>
+	                                                </div>
+	                                            </div>  
+												<?php 
+													}else{
+														
+													
+												?>
+												<div class="form-group">
+	                                                <label class="col-md-2 control-label">Gender</label>
+	                                                <div class="col-md-7">
+													<select class="form-control" name="txt_gender">
+													<option>Select</option>
+													<option Value="Male" >Male</option>
+													<option Value="Female">Female</option>
+	                                                </select>
+	                                                </select>
+	                                                </div>
+	                                            	<div class="col-md-3">
+	                                                <?php //echo form_error('txt_gender');?>
+	                                                </div>
+	                                            </div> 
+												<?php 
+													}
+												?> 
+												<div class="form-group">
+	                                                <label class="col-md-2 control-label">Plan Logo</label>
+	                                                <div class="col-md-7">
+	                                                    <input type="file" id="fileUpload" class="form-control" value="" name="txt_logo"><br/>
+	                                                    <div id="image-holder">
+                                                            <img src="<?php echo base_url().$edit_clients['txt_client_logo']; ?>"/>
+                                                       </div>
+	                                                </div>
+	                                            	<!--<div class="col-md-3">
+	                                                
+	                                                </div>-->
+													<script>
+												 
+		 $("#fileUpload").on('change', function () {
+
+        if (typeof (FileReader) != "undefined") {
+
+            var image_holder = $("#image-holder");
+            image_holder.empty();
+
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $("<img />", {
+                    "src": e.target.result,
+                    "class": "thumb-image"
+                }).appendTo(image_holder);
+
+            }
+            image_holder.show();
+            reader.readAsDataURL($(this)[0].files[0]);
+        } else {
+            alert("This browser does not support FileReader.");
+        }
+    });
+												  </script>
+	                                            </div>                                                            
 	                                             
 	                                             <div class="form-group">
 	                                             <label class="col-md-2 control-label">Date</label>

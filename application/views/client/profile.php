@@ -1,5 +1,6 @@
- <?php $abc=$this->user;
- //print_r($abc[0]['int_user_id']);exit; ?>
+ <?php //$abc=$this->user;
+//print_r($pro);exit;
+ //print_r($detail);exit; ?>
 <div class="content">
 		<div class="container">
 		<div class="row">
@@ -14,12 +15,14 @@
 									</p> -->
                         			<div class="row">
                         				<div class="col-md-12">
-                        					<form class="form-horizontal" role="form" action="<?php echo site_url('Member/insert_member')?>" method="post">                                    
+                        					<form class="form-horizontal" role="form" action="<?php echo site_url('Profile/update_client_detail')?>" method="post" enctype="multipart/form-data">                                    
 	                                            <div class="form-group"> 
 												
 	                                                <label class="col-md-2 control-label">Client Name</label>
 	                                                <div class="col-md-7">
-	                                                    <input type="text" class="form-control" value="" name="client_name">
+													  <input type="hidden" class="form-control" value="<?php echo $pro['int_client_id'];?>" name="cli_id" readonly>
+													  <input type="hidden" class="form-control" value="<?php echo $detail['int_client_id'];?>" name="clie_id" readonly>
+	                                                    <input type="text" class="form-control" value="<?php echo $pro['txt_client_name'];?>" name="client_name" readonly>
 	                                                </div>
 	                                                <div class="col-md-3">
 	                                                <?php echo form_error('client_name');?>
@@ -28,16 +31,16 @@
                                                     <div class="form-group"> 					
 	                                                <label class="col-md-2 control-label">Client Email</label>
 	                                                <div class="col-md-7">
-	                                                    <input type="text" class="form-control" value="" name="client_email">
+	                                                    <input type="text" class="form-control" value="<?php echo $pro['txt_client_email'];?>" name="client_email" readonly>
 	                                                </div>
 	                                                <div class="col-md-3">
 	                                                <?php echo form_error('client_email');?>
 	                                                </div>
 	                                            </div>
-                                                    <div class="form-group"> 					
+                                                <div class="form-group"> 					
 	                                                <label class="col-md-2 control-label">Client Mobile Number</label>
 	                                                <div class="col-md-7">
-	                                                    <input type="text" class="form-control" value="" name="client_mobile">
+	                                                    <input type="text" class="form-control" value="<?php echo $pro['txt_mobile'];?>" name="client_mobile" readonly>
 	                                                </div>
 	                                                <div class="col-md-3">
 	                                                <?php echo form_error('client_mobile');?>
@@ -46,22 +49,68 @@
 	                                             <div class="form-group">
 	                                                <label class="col-sm-2 control-label">Client Address</label>
 	                                                <div class="col-md-7">
-	                                                    <input type="text" class="form-control" value="" name="txt_address">
+	                                                    <input type="text" class="form-control" value="<?php echo $detail['txt_client_address'];?>" name="txt_address" >
 	                                                </div>
 	                                              <div class="col-md-3">
 	                                                <?php echo form_error('txt_address');?>
 	                                               </div>
 													
 	                                            </div>
-	                                             <div class="form-group">
+												<?php 
+												if($detail['txt_gender']=='Male'){
+												?>
+	                                            <div class="form-group">
 	                                                <label class="col-md-2 control-label">Gender</label>
 	                                                <div class="col-md-7">
-	                                                    <input type="text" class="form-control" value="" name="txt_gender">
+													<select class="form-control" name="txt_gender">
+													<option>Select</option>
+													<option Value="Male" selected>Male</option>
+													<option Value="Female">Female</option>
+	                                                </select>
 	                                                </div>
 	                                            	<div class="col-md-3">
 	                                                <?php echo form_error('txt_gender');?>
 	                                                </div>
 	                                            </div>  
+												<?php 
+													}else if($detail['txt_gender']=='Female'){
+												?>
+												 <div class="form-group">
+	                                                <label class="col-md-2 control-label">Gender</label>
+	                                                <div class="col-md-7">
+													<select class="form-control" name="txt_gender">
+													<option>Select</option>
+													<option Value="Male" >Male</option>
+													<option Value="Female" selected>Female</option>
+	                                                    </select>
+	                                                </select>
+	                                                </div>
+	                                            	<div class="col-md-3">
+	                                                <?php echo form_error('txt_gender');?>
+	                                                </div>
+	                                            </div>  
+												<?php 
+													}else{
+														
+													
+												?>
+												<div class="form-group">
+	                                                <label class="col-md-2 control-label">Gender</label>
+	                                                <div class="col-md-7">
+													<select class="form-control" name="txt_gender">
+													<option>Select</option>
+													<option Value="Male" >Male</option>
+													<option Value="Female">Female</option>
+	                                                </select>
+	                                                </select>
+	                                                </div>
+	                                            	<div class="col-md-3">
+	                                                <?php echo form_error('txt_gender');?>
+	                                                </div>
+	                                            </div> 
+												<?php 
+													}
+												?> 
 												<div class="form-group">
 	                                                <label class="col-md-2 control-label">Plan Logo</label>
 	                                                <div class="col-md-7">
@@ -71,48 +120,11 @@
                                                        </div>
 	                                                </div>
 	                                            	<div class="col-md-3">
-	                                                <?php echo form_error('txt_gender');?>
+	                                                
 	                                                </div>
-	                                            </div>  
-												  
-	                                              	 
-												<div class="form-group">
-	                                             <label class="col-md-2 control-label">Date of Purchase</label>
-												        <div class='col-md-7'>
-												            <div class="form-group">
-												                <div class='input-group date'>	
-												                    <input type='text' class="form-control" id="datepicker" name="date_of_purchase" />
-												                    <span class="input-group-addon">
-												                        <span class="glyphicon glyphicon-calendar"></span>
-												                    </span>
-												                </div>												           
-												        	</div>
-												        </div>
-												        <div class="col-md-3">
-			                                                <?php echo form_error('date_of_purchase');?>
-			                                            </div>
-												        
-												    </div> 
-												<div class="form-group">
-	                                             <label class="col-md-2 control-label">Date</label>
-												        <div class='col-md-7'>
-												            <div class="form-group">
-												                <div class='input-group date'>	
-												                    <input type='text' class="form-control" id="datepicker" name="date" />
-												                    <span class="input-group-addon">
-												                        <span class="glyphicon glyphicon-calendar"></span>
-												                    </span>
-												                </div>												           
-												        	</div>
-												        </div>
-												        <div class="col-md-3">
-			                                                <?php echo form_error('date');?>
-			                                            </div>
-												        <script>
-												  $( function() {
-												    $( "#datepicker" ).datepicker();
-												  } );
-												  $("#fileUpload").on('change', function () {
+													<script>
+												 
+		 $("#fileUpload").on('change', function () {
 
         if (typeof (FileReader) != "undefined") {
 
@@ -134,8 +146,8 @@
         }
     });
 												  </script>
-												    </div>
-	                                             <div class="form-group">
+	                                            </div>  
+												 <div class="form-group">
                                                  <div class="col-lg-10 col-lg-offset-2">
                                                  <button type="reset" class="btn btn-default">Cancel</button>
                                                  <button type="submit" class="btn btn-primary" >Submit</button>
