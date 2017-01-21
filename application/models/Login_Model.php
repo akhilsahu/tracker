@@ -15,7 +15,7 @@
 
   public function plan_of_client(){
   	
-  	$q = $this->db->query("select int_plan_id ,txt_plan_name from tab_plans");
+  	$q = $this->db->query("select int_plan_id ,txt_plan_name from tab_plans where int_is_deleted!=1");
   	return $data = $q->result_array();
    
   	           
@@ -126,11 +126,12 @@
 				
   
   public function update_client_data($int_user_id){
-	  
+      //echo 'hi';exit;
+	  //print_r($_FILES);exit;
 	  if($_FILES["txt_logo"]["name"]!=''){
 		   $target_dir = "upload/client/";
 	  $target_file = $target_dir . basename($_FILES["txt_logo"]["name"]);
-	 print_r($target_file);exit;
+	// print_r($target_file);exit;
 	  	  $uploadOk = 1;
 	  $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
 	
@@ -174,11 +175,12 @@
            
   }
 
-  public function get_client($id,$int_user_id){
+  public function get_client($id){
+     // echo "SELECT * FROM tab_clients WHERE int_client_id = $id ";exit;
         $query=$this->db->query("SELECT *
                                  FROM tab_clients 
-                                 WHERE int_client_id = $id and txt_added_by=$int_user_id");
-        return $query->row_array();
+                                 WHERE int_client_id = $id");
+       return $query->row_array();
     }
 	
   

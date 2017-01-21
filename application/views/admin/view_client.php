@@ -36,6 +36,9 @@
 										<th>Email </th>
 										<th>Phone Number</th>
 										<th>No of member</th>
+                                                                                <th>Client Address</th>
+                                                                                <th>Client Gender</th>
+                                                                                <th>Client Logo</th>
 										<th> Date</th>
 									</thead>
 									<tbody>
@@ -49,6 +52,11 @@
 									<td><?php echo $each['txt_client_email']; ?></td>
 									<td><?php echo $each['txt_mobile']; ?></td>
 									<td><?php echo $each['txt_no_of_member']; ?></td>
+                                                                        <td><?php echo $each['txt_client_address']; ?></td>
+                                                                        <td><?php echo $each['txt_gender']; ?></td>
+                                                                        <?php if($each['txt_client_logo']==''||$each['txt_client_logo']==NULL){ ?>
+                                                                        <td><img src="<?php echo base_url()?>/upload/noimage.jpg" height="50px" width="50px" /></td><?php }else { ?>
+                                                                        <td><img src="<?php echo base_url().$each['txt_client_logo']; ?>" height="50px" width="50px" /></td><?php } ?>
 									<td><?php echo $each['dt_date']; ?></td>
 									<td><a href="<?php echo site_url().'/Client/edit_client/'.$each['int_client_id'] ?>" class="btn btn-primary">Edit</a> <a href="javascript:void(0)" class="btn btn-primary" onclick="delete_record(<?php echo $each['int_client_id'] ;?>)">Delete</a></td>
 									</tr>

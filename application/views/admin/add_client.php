@@ -1,9 +1,6 @@
- 
 <div class="content">
-		<div class="container">
-		<div class="row">
-
-						</div>
+    <div class="container">
+            <div class="row"></div>
 		<div class="row">
                         	<div class="col-sm-12">
                         		<div class="card-box">
@@ -40,13 +37,11 @@
 	                                                <label class="col-sm-2 control-label">Plan Of Client</label>
 	                                                <div class="col-sm-7">
 	                                                    <select class="form-control" name="plan_of_client">
+                                                                 <option value="">Select Plan</option>
 	                                                         <?php foreach($plan_of_client_val as $each){ ?>
                            <option value="<?php echo $each['int_plan_id']; ?>"><?php echo $each['txt_plan_name']; ?></option>
-    <?php } ?>
-
-	                                                        
-	                                                    </select>
-	                                                   
+                                                <?php } ?>
+                                                     </select>
 	                                                </div>
 	                                              <div class="col-md-3">
 	                                                <?php echo form_error('plan_of_client');?>
@@ -101,7 +96,7 @@
 	                                                <div class="col-md-7">
 													<select class="form-control" name="txt_gender">
 													<option>Select</option>
-													<option Value="Male" selected>Male</option>
+													<option Value="Male">Male</option>
 													<option Value="Female">Female</option>
 	                                                </select>
 	                                                </div>
@@ -172,7 +167,8 @@
             reader.onload = function (e) {
                 $("<img />", {
                     "src": e.target.result,
-                    "class": "thumb-image"
+                    "class": "thumb-image", 
+                    "style":"height:150px;width:200px"
                 }).appendTo(image_holder);
 
             }
@@ -218,22 +214,17 @@
 												    </div>
 
 	                                             <div class="form-group">
-                                                 <div class="col-lg-10 col-lg-offset-2">
-                                                 <button type="reset" class="btn btn-default">Cancel</button>
-                                                 <button type="submit" class="btn btn-primary" >Submit</button>
-                                                 </div>
-                                                 </div>
+                                                                <div class="col-lg-10 col-lg-offset-2">
+                                                                <button type="reset" class="btn btn-default">Cancel</button>
+                                                                <button type="submit" class="btn btn-primary" >Submit</button>
+                                                                </div>
+                                                    </div>
 	                                            
-	     
-	                           
-	                                        </form>
-                        				</div>
-                        				
-                        				
-                        				
-                        			</div>
+                                                </form>
+                                            </div>
                         		</div>
                         	</div>
+                        </div>
+            </div>
         </div>
-        </div>
-        </div>
+    </div>
