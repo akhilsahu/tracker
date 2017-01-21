@@ -1,13 +1,11 @@
  <?php //print_r($plan_of_client_val);exit; ?>
 <div class="content">
 		<div class="container">
-		<div class="row">
-
-						</div>
+		<div class="row"></div>
 		<div class="row">
                         	<div class="col-sm-12">
                         		<div class="card-box">
-                        			<h4 class="m-t-0 header-title"><b>Add Client</b></h4>
+                        			<h4 class="m-t-0 header-title"><b>Edit Client</b></h4>
                         			<!-- <p class="text-muted m-b-30 font-13">
 										Most common form control, text-based input fields. Includes support for all HTML5 types: <code>text</code>, <code>password</code>, <code>datetime</code>, <code>datetime-local</code>, <code>date</code>, <code>month</code>, <code>time</code>, <code>week</code>, <code>number</code>, <code>email</code>, <code>url</code>, <code>search</code>, <code>tel</code>, and <code>color</code>.
 									</p> -->
@@ -93,7 +91,7 @@
 	                                                     <div class="form-group">
 	                                                <label class="col-md-2 control-label">Client Address</label>
 	                                                <div class="col-md-7">
-	                                                    <input type="text" class="form-control" value="<?php echo $edit_clients['txt_no_of_member']; ?>" name="txt_address">
+	                                                    <input type="text" class="form-control" value="<?php echo $edit_clients['txt_client_address']; ?>" name="txt_address">
 	                                                </div>
 	                                            	<div class="col-md-3">
 	                                                <?php //echo //form_error('txt_address');?>

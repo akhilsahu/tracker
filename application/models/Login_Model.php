@@ -14,24 +14,17 @@
   }
 
   public function plan_of_client(){
-  	
-  	$q = $this->db->query("select int_plan_id ,txt_plan_name from tab_plans");
+  	$q = $this->db->query("select int_plan_id ,txt_plan_name from tab_plans where int_is_deleted!=1");
   	return $data = $q->result_array();
-   
-  	           
-  	           
-  }
+ }
 
   public function client_type(){
   	
   	$q=$this->db->query("select * from tab_user_group");
   	return $data =$q->result_array();
-              
-  	           
   }
 
   public function client_list(){
-  	
   	$q=$this->db->query("SELECT P.txt_plan_name, C.* from tab_clients as C inner join tab_plans as P on C.txt_plan_of_client=P.int_plan_id where C.int_is_deleted=0");
   	//print_r($q);exit;
             return $data =$q->result_array();
@@ -39,15 +32,12 @@
   }
 
   public function insert_client_data($int_user_id){
-	  
 	  $target_dir = "upload/client/";
 	  $target_file = $target_dir . basename($_FILES["txt_logo"]["name"]);
-	 
-	  	  $uploadOk = 1;
+	  $uploadOk = 1;
 	  $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
 	//  print_r($imageFileType);exit;
-
-	  if($imageFileType == "jpg" || $imageFileType == "png" || $imageFileType == "jpeg" || $imageFileType == "gif" ) {
+        if($imageFileType == "jpg" || $imageFileType == "png" || $imageFileType == "jpeg" || $imageFileType == "gif" ) {
 	  move_uploaded_file($_FILES["txt_logo"]["tmp_name"], $target_file);    
 	  $seed = str_split('abcdefghijklmnopqrstuvwxyz'
 		                 .'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
@@ -74,7 +64,7 @@
                    'int_group_id' => '2',
             'dt_date' => date('Y-m-d',strtotime($this->input->post('date'))));
 			$this->db->insert("tab_users",$data1);
-		 $lastid=$this->db->insert_id();
+		// $lastid=$this->db->insert_id();
 		
 			 //print_r( $target_file);exit;
 			
@@ -89,8 +79,8 @@
 					'txt_client_address'=>$this->input->post('txt_address'),
 				   'txt_gender'=>$this->input->post('txt_gender'),
 				   'txt_client_logo'=>$target_file,
-                    'dt_date' => date('Y-m-d',strtotime($this->input->post('date'))),
-					'int_user_id' => $lastid);
+                    'dt_date' => date('Y-m-d',strtotime($this->input->post('date'))));
+					//'int_user_id' => $lastid
 					$query1=$this->db->insert("tab_clients",$data);
                                   } 
 					//echo $query1?"12":"13";exit;
@@ -198,6 +188,25 @@
         $query=$this->db->query("select * from tab_users where int_user_id=$id");
         return $query->row_array();
 //        return $query;
+    }
+    public function password_change($user)
+    {
+        $id=$user;
+        $select_query="Select *from tab_users where int_user_id=$id";
+        $query=$this->db->query($select_query);
+        $select_result=$query->row_array();
+        $new_password=$this->input->post('new_password');
+        //echo $new_password;die;
+        if($select_result['txt_password']==$this->input->post('old_password'))
+        {
+           $update_query="update tab_users SET txt_password='$new_password' where int_user_id=$id";
+           $query_update=$this->db->query($update_query);
+        }
+        else
+        {
+            echo "invalid user";exit;
+        }
+       echo "<script>alert('password updated..!')</script>";
     }
 	
 }

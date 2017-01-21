@@ -1,4 +1,3 @@
- 
 <div class="content">
 		<div class="container">
 		<div class="row">
@@ -21,7 +20,6 @@
 														<option value="Personal">Personal</option>
 	                                                        <option value="Commercial">Commercial</option>
 	                                                    </select>
-	                                                   
 	                                                </div>
 	                                              <div class="col-md-3">
 	                                                <?php echo form_error('txt_gender');?>
@@ -172,7 +170,8 @@
             reader.onload = function (e) {
                 $("<img />", {
                     "src": e.target.result,
-                    "class": "thumb-image"
+                    "class": "thumb-image",
+                    "style":"height:120px;widtth:150px"
                 }).appendTo(image_holder);
 
             }
@@ -236,4 +235,4 @@
                         	</div>
         </div>
         </div>
-        </div>
+     </div>
