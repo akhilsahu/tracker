@@ -1,4 +1,4 @@
- <?php //print_r($plan_of_client_val);exit; ?>
+ <?php //print_r($edit_clients);exit; ?>
 <div class="content">
 		<div class="container">
 		<div class="row"></div>
@@ -11,18 +11,37 @@
 									</p> -->
                         			<div class="row">
                         				<div class="col-md-12">
-                        					<form class="form-horizontal" role="form" action="<?php echo site_url('Client/update_client')?>" method="post">                                    
+                        					<form class="form-horizontal" action="<?php echo site_url('Client/update_client')?>" method="post" enctype="multipart/form-data">                                    
 	                                            <div class="form-group"> <div class="form-group">
 	                                                <label class="col-sm-2 control-label">Type</label>
+                                                        <?php if($edit_clients['txt_client_type']=="Commercial"){ ?>
 	                                                <div class="col-sm-7">
                                                             <select class="form-control" name="txt_type">
-															<option  value="0">Select</option> <?php ?>
-															<option value="<?php echo $edit_clients['txt_client_type']?>"  <?php echo ($edit_clients['txt_client_type']=="Commercial")?'selected="selected"':''?>><?php echo $edit_clients['txt_client_type'];?></option>
-															<option value="Personal">Personal</option>
-	                                                        <option value="Commercial">Commercial</option>
+                                                                <option  value="0">Select</option>
+                                                                <option value="Personal">Personal</option>
+                                                                <option value="Commercial" Selected>Commercial</option>
 	                                                    </select>
 	                                                   
 	                                                </div>
+                                                        <?php }else if($edit_clients['txt_client_type']=="Personal") { ?>
+                                                        <div class="col-sm-7">
+                                                            <select class="form-control" name="txt_type">
+								<option  value="0">Select</option>
+                                                                <option value="Personal" Selected>Personal</option>
+                                                                <option value="Commercial">Commercial</option>
+	                                                    </select>
+	                                                   
+	                                                </div>
+                                                        <?php } else { ?>
+                                                         <div class="col-sm-7">
+                                                            <select class="form-control" name="txt_type">
+								<option  value="0">Select</option>
+                                                                <option value="Personal">Personal</option>
+                                                                <option value="Commercial">Commercial</option>
+	                                                    </select>
+	                                                   
+	                                                </div>
+                                                        <?php } ?>
 	                                              <div class="col-md-3">
 	                                                <?php echo form_error('txt_type');?>
 	                                                </div>
@@ -155,9 +174,9 @@
 												<div class="form-group">
 	                                                <label class="col-md-2 control-label">Plan Logo</label>
 	                                                <div class="col-md-7">
-	                                                    <input type="file" id="fileUpload" class="form-control" value="" name="txt_logo"><br/>
+	                                                    <input type="file" id="fileUpload" class="form-control" name="txt_logo" ><br/>
 	                                                    <div id="image-holder">
-                                                            <img src="<?php echo base_url().$edit_clients['txt_client_logo']; ?>"/>
+                                                            <img src="<?php echo base_url().$edit_clients['txt_client_logo']; ?>" height="150px" width="200px"/>
                                                        </div>
 	                                                </div>
 	                                            	<!--<div class="col-md-3">
@@ -176,7 +195,8 @@
             reader.onload = function (e) {
                 $("<img />", {
                     "src": e.target.result,
-                    "class": "thumb-image"
+                    "class": "thumb-image",
+                    "style":"height:150px;width:200px"
                 }).appendTo(image_holder);
 
             }
@@ -225,7 +245,7 @@
 	                                             <div class="form-group">
                                                  <div class="col-lg-10 col-lg-offset-2">
                                                  <button type="reset" class="btn btn-default">Cancel</button>
-                                                 <button type="submit" class="btn btn-primary" >Update</button>
+                                                 <button type="submit" name="submit" id="submit" class="btn btn-primary" >Update</button>
                                                  </div>
                                                  </div>
 	                                            

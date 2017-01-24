@@ -7,6 +7,8 @@ class Client extends CI_Controller{
         parent::__construct();
         $this->load->model('Login_Model');
         $this->user=$this->session->userdata('user');
+        if($this->user['int_user_id']=='')
+            redirect('welcome','refresh');
     }
 
     public function add(){
@@ -87,7 +89,8 @@ function list_clients(){
 
 function edit_client($edit_id){
 
-	$data['edit_clients'] = $this->Login_Model->get_client($edit_id,$this->user[0]['int_user_id']);
+	$data['edit_clients'] = $this->Login_Model->get_client($edit_id);
+        
 	
 	 $data['load_page']='edit_client';
 	  $data['plan_of_client_val'] = $this->Login_Model->plan_of_client();
@@ -104,6 +107,7 @@ function delete_client($edit_id){
 }
 
 function logout(){
+    $this->session->unset_userdata('user');
  $this->session->sess_destroy();
  redirect('/Welcome','refresh');
               
