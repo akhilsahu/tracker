@@ -180,7 +180,7 @@
                                     <a href="" class="dropdown-toggle profile" data-toggle="dropdown" aria-expanded="true"><img src="<?php echo base_url();?>assets/images/users/avatar-1.jpg" alt="user-img" class="img-circle"> </a>
                                     <ul class="dropdown-menu">
                                         <li><a href="<?php echo site_url().'/profile/edit_profile/';?>"><i class="ti-user m-r-5"></i> Profile</a></li>
-                                        <li> <button type="button" class="btn" data-toggle="modal" data-target="#myModal1"><i class="ti-settings m-r-5"></i>Change Password</button></li>
+                                        <li> <button type="button" class="btn" style="background-color: white;" data-toggle="modal" data-target="#myModal1"><i class="ti-settings m-r-5"></i>Change Password</button></li>
                                         <li><a href="javascript:void(0)"><i class="ti-lock m-r-5"></i> Lock screen</a></li>
                                         <li><a href="<?php echo site_url().'/Member/logout/';?>"><i class="ti-power-off m-r-5"></i> Logout</a></li>
                                     </ul>
@@ -225,7 +225,7 @@
 	                                                </div>
 	                                            </div>
               <div class="form-group"> 
-							<label class="col-md-4 control-label">Confirm New Password <span style="color: red;">*</span> </label>
+							<label class="col-md-4 control-label">Confirm Password <span style="color: red;">*</span> </label>
 	                                                <div class="col-md-7">
 	                                                    <input type="password" class="form-control" id="confirm_new_password"  name="confirm_new_password" placeholder="Enter Your New Password">
 	                                                </div>
