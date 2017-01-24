@@ -20,12 +20,11 @@
 														<option value="Personal">Personal</option>
 	                                                        <option value="Commercial">Commercial</option>
 	                                                    </select>
-	                                                </div>
+	                                               </div>
 	                                              <div class="col-md-3">
 	                                                <?php echo form_error('txt_gender');?>
 	                                                </div>
-													
-	                                            </div>
+							 </div>
 	                                                <label class="col-md-2 control-label">Client Name </label>
 	                                                <div class="col-md-7">
 	                                                    <input type="text" class="form-control" value="" name="client_name">
@@ -69,10 +68,7 @@
 	                                                <?php echo form_error('client_phone');?>
 	                                                </div>
 	                                            </div>  
-	                                                
-												
-													 
-												<div class="form-group">
+	                                            <div class="form-group">
 	                                                <label class="col-md-2 control-label">No. Of Member</label>
 	                                                <div class="col-md-7">
 	                                                    <input type="text" class="form-control" value="" name="no_of_member">
@@ -81,8 +77,7 @@
 	                                                <?php echo form_error('no_of_member');?>
 	                                                </div>
 	                                            </div>
-																								
-	                                                <div class="form-group">
+                                                    <div class="form-group">
 	                                                <label class="col-md-2 control-label">Client Address</label>
 	                                                <div class="col-md-7">
 	                                                    <input type="text" class="form-control" value="" name="txt_address">
@@ -92,8 +87,8 @@
 	                                                </div>
 	                                            </div>                                                               
 	                                             <?php 
-												//if($detail['txt_gender']=='Male'){
-												?>
+							//if($detail['txt_gender']=='Male'){
+                                                    ?>
 	                                            <div class="form-group">
 	                                                <label class="col-md-2 control-label">Gender</label>
 	                                                <div class="col-md-7">
