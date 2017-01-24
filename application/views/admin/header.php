@@ -99,7 +99,7 @@
                                                         <div class="form-group"> 
 							<label class="col-md-2 control-label">Old Password </label>
 	                                                <div class="col-md-7">
-	                                                    <input type="text" class="form-control" name="old">
+	                                                    <input type="text" class="form-control" name="old" id="old">
 	                                                </div>
 	                                                <div class="col-md-3">
 	                                                <?php echo form_error('old');?>
@@ -108,7 +108,7 @@
 	                                             <div class="form-group">
 	                                                <label class="col-sm-2 control-label">New Password</label>
 	                                                <div class="col-md-7">
-                                                          <input type="text" class="form-control" name="new"> 
+                                                          <input type="text" class="form-control" name="new" id="new"> 
 	                                                </div>
 	                                              <div class="col-md-3">
 	                                                <?php echo form_error('new');?>
@@ -118,7 +118,7 @@
                                                     <div class="form-group"> 
 							<label class="col-md-2 control-label">Confirm New Password </label>
 	                                                <div class="col-md-7">
-	                                                    <input type="text" class="form-control" name="confirm_new">
+	                                                    <input type="text" class="form-control" name="confirm_new" id="confirm">
 	                                                </div>
 	                                                <div class="col-md-3">
 	                                                <?php echo form_error('confirm_new');?>
@@ -128,8 +128,9 @@
 												
 	                                             <div class="form-group">
                                                  <div class="col-lg-10 col-lg-offset-2">
+                                                      <input type="button" class="btn btn-primary" id="submit12" Value="Submit"> 
                                                  <button type="reset" class="btn btn-default">Cancel</button>
-                                                 <button type="submit" class="btn btn-primary" >Submit</button>
+                                                
                                                  </div>
                                                  </div>
 	                                            
