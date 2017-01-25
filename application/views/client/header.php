@@ -6,7 +6,7 @@
 
         <link rel="shortcut icon" href="assets/images/favicon_1.ico">
 
-        <title>SAAYA|Admin Panel</title>
+        <title>SAAYA| Admin Panel</title>
 
         <!--Morris Chart CSS -->
 	<link rel="stylesheet" href="<?php echo base_url();?>/assets/plugins/morris/morris.css">
@@ -25,7 +25,9 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
         <![endif]-->
-
+     <!--   <script src="<?php echo base_url();?>/assets/js/valid.js"></script>-->
+       <!--  <script src="<?php echo base_url();?>/assets/js/valid1.js"></script>-->
+        <script src="<?php echo base_url();?>/assets/js/jquery-2.2.4.min.js"></script>
         <script src="<?php echo base_url();?>/assets/js/modernizr.min.js"></script>
         <script src="<?php echo base_url();?>/assets/js/jquery.min.js"></script>
         <script src="<?php echo base_url();?>/assets/js/bootstrap.min.js"></script>
@@ -204,13 +206,14 @@
           <center>  <h4 class="modal-title"><a href="#" ><span>Change Password</span></a></h4></center>
         </div>
           <div class="modal-body">
-          <form class="form-horizontal" role="form" action="<?php echo site_url('Client/change_password')?>" method="post"> 
+          <form class="form-horizontal" id="password_form" role="form" action="<?php echo site_url('Client/change_password')?>" method="post"> 
               <input  type="hidden" name="member_id" value="<?php ?>"/>
                                                         <div class="form-group"> 
                                                             <label class="col-md-4 control-label">Old Password<span style="color: red;">*</span> </label>
 	                                                <div class="col-md-7">
-	                                                    <input type="password" class="form-control"  name="old_password" placeholder="Enter Your old Password">
-	                                                </div>
+	                                                    <input type="password" class="form-control" id="old_password"  name="old_password" placeholder="Enter Your old Password">
+	                                                  <p id="msg1"></p>
+                                                        </div>
 	                                                <div class="col-md-3">
 	                                                <?php echo form_error('old_password');?>
 	                                                </div>
@@ -219,16 +222,18 @@
 							<label class="col-md-4 control-label">New Password <span style="color: red;">*</span> </label>
 	                                                <div class="col-md-7">
 	                                                    <input type="password" class="form-control"  name="new_password" id="new_password" placeholder="Enter Your New Password">
-	                                                </div>
+	                                                 <p id="msg2"></p>
+                                                        </div>
 	                                                <div class="col-md-3">
 	                                                <?php echo form_error('new_password');?>
 	                                                </div>
 	                                            </div>
               <div class="form-group"> 
-							<label class="col-md-4 control-label">Confirm Password <span style="color: red;">*</span> </label>
-	                                                <div class="col-md-7">
+							<label class="col-md-4 control-label" >Confirm Password <span style="color: red;">*</span> </label>
+	                                                <div class="col-md-7" id="confirm_password">
 	                                                    <input type="password" class="form-control" id="confirm_new_password"  name="confirm_new_password" placeholder="Enter Your New Password">
-	                                                </div>
+                                                            <p id="msg3"></p>
+                                                        </div>
 	                                                <div class="col-md-3">
 	                                                <?php echo form_error('new_password');?>
 	                                                </div>
@@ -238,7 +243,7 @@
 	                                             <div class="form-group">
                                                  <div class="col-lg-10 col-lg-offset-2">
                                                  <button type="reset" class="btn btn-default">Cancel</button>
-                                                 <button type="submit" class="btn btn-primary" >Submit</button>
+                                                 <button type="button" id="btn_password" onclick="change_password()" class="btn btn-primary" >Submit</button>
                                                  </div>
                                                  </div>
 	                                            
@@ -249,6 +254,7 @@
 
           </div>
         <div class="modal-footer">
+            
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
       </div>
@@ -257,12 +263,207 @@
   </div>
   
 </div>
+        
 
-        <script >
-        if ($("#new_password")!=$("confirm_new_password"));
-        {
-            
+    <script >
+      
+   $("#btn_password").click(function() {
+       if($("#old_password").val() == "")
+       {
+                $("#msg1").css("color", "red");
+                 $("#msg1").html("Enter old password.!!");
+                 $("#old_password").focus();
+                 return false;
+       }
+       else
+       {
+           
+              $("#msg1").empty();
+       }
+        if($("#new_password").val() == "")
+       {
+                $("#msg2").css("color", "red");
+                 $("#msg2").html("Enter new password.!!");
+                 $("#new_password").focus();
+                 return false;
+       }
+        else
+       {
+              $("#msg2").empty();
+       }
+       
+       if($("#confirm_new_password").val() == "")
+       {
+                $("#msg3").css("color", "red");
+                 $("#msg3").html("Enter confirm password.!!");
+                 $("#confirm_new_password").focus();
+                 return false;
+       }
+        else
+       {
+              $("#msg3").empty();
+       }
+        // alert($("#new_password").val() +"  " + $("#confirm_new_password").val());
+            var New_password=$("#new_password").val();
+            var Confirm_new_password=$("#confirm_new_password").val();
+           // alert(New_password + " " + Confirm_new_password);
+            if ( New_password != Confirm_new_password )
+            {
+                 // alert($("#new_password").val());
+                    $("#confirm_new_password").css("border-color", "red");
+                   // $("#confirm_new_password").append("password does not Match");
+                   $("#msg3").css("color", "red");
+
+                    $("#confirm_new_password").focus();
+                    $("#msg3").append("password do not matches");
+                    return false;
+                    $("#msg3").empty();
+                    
+            } 
+            else { 
+                     $("#msg3").empty();
+                     $.ajax({
+					type:'POST',
+					url:"<?php echo site_url(); ?>"+"/Change_password/change",
+					data:{
+						'new_pass':$("#new_password").val(),
+                                                'old_pass':$("#old_password").val(),
+                                                'confirm_pass':$("#confirm_new_password").val()
+					},
+						 
+					success: function(res)
+					{
+						if(res)
+						{ 
+							alert(res);
+                                                        $("#old_password").val('');
+                                                        $("#new_password").val('');
+                                                        $("#confirm_new_password").val('');
+						}
+						else
+						{
+							alert("failed to update");
+						}
+					  },
+					 
+					error: function(res)
+					{
+						alert("failure");
+					},
+				});
+                
+                     return true;
+                 }
+            });
+ /*function change_password()
+    {
+   
+        $.ajax({
+            url:"<?php //echo site_url().'/Client/change_password/';?>",
+            success:function(data)
+            {           
+                
+            }
+        });
         }
-        
-        
+    }*/
+/*$('#password_form').submit(function() {
+    var id1 = $('#id1').text(); //if #id1 is input element change from .text() to .val() 
+    var id2 = $('#id2').text(); //if #id2 is input element change from .text() to .val()
+    if (id1 == id2) {
+        alert('Error, cant do that');
+        return false;
+    }
+    else
+    {
+        return true;
+    }*/
+    
+
         </script>
+
+        
+        /*********script**/
+      <!--  <script>
+	$.validator.setDefaults({
+		submitHandler: function() {
+			alert("submitted!");
+		}
+	});
+
+	$().ready(function() {
+		// validate the comment form when it is submitted
+		$("#commentForm").validate();
+
+		// validate signup form on keyup and submit
+		$("#signupForm").validate({
+			rules: {
+				firstname: "required",
+				lastname: "required",
+				username: {
+					required: true,
+					minlength: 2
+				},
+				password: {
+					required: true,
+					minlength: 5
+				},
+				confirm_password: {
+					required: true,
+					minlength: 5,
+					equalTo: "#password"
+				},
+				email: {
+					required: true,
+					email: true
+				},
+				topic: {
+					required: "#newsletter:checked",
+					minlength: 2
+				},
+				agree: "required"
+			},
+			messages: {
+				firstname: "Please enter your firstname",
+				lastname: "Please enter your lastname",
+				username: {
+					required: "Please enter a username",
+					minlength: "Your username must consist of at least 2 characters"
+				},
+				password: {
+					required: "Please provide a password",
+					minlength: "Your password must be at least 5 characters long"
+				},
+				confirm_password: {
+					required: "Please provide a password",
+					minlength: "Your password must be at least 5 characters long",
+					equalTo: "Please enter the same password as above"
+				},
+				email: "Please enter a valid email address",
+				agree: "Please accept our policy"
+			}
+		});
+
+		// propose username by combining first- and lastname
+		$("#username").focus(function() {
+			var firstname = $("#firstname").val();
+			var lastname = $("#lastname").val();
+			if (firstname && lastname && !this.value) {
+				this.value = firstname + "." + lastname;
+			}
+		});
+
+		//code to hide topic selection, disable for demo
+		var newsletter = $("#newsletter");
+		// newsletter topics are optional, hide at first
+		var inital = newsletter.is(":checked");
+		var topics = $("#newsletter_topics")[inital ? "removeClass" : "addClass"]("gray");
+		var topicInputs = topics.find("input").attr("disabled", !inital);
+		// show when newsletter is checked
+		newsletter.click(function() {
+			topics[this.checked ? "removeClass" : "addClass"]("gray");
+			topicInputs.attr("disabled", !this.checked);
+		});
+	});
+	</script>-->
+        /****script end*************/

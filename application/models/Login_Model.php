@@ -195,7 +195,8 @@
     public function password_change($user)
     {
         $id=$user;
-        $select_query="Select *from tab_users where int_user_id=$id";
+       // echo $id;die;
+        $select_query="Select * from tab_users where int_user_id=$id";
         $query=$this->db->query($select_query);
         $select_result=$query->row_array();
         $new_password=$this->input->post('new_password');
@@ -209,10 +210,8 @@
         {
             echo "invalid user";exit;
         }
-       echo "<script>alert('password updated..!')</script>";
+       //echo "<script>alert('password updated..!')</script>";
     }
 	
 }
-
-
 ?>

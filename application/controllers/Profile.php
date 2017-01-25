@@ -10,7 +10,8 @@ class Profile extends CI_Controller{
 			//print_r($this->user);exit;
     }
 
-    public function edit_profile(){
+    public function edit_profile()
+            {
 		$data['pro'] = $this->Profile_Model->get_all_client($this->user[0]['int_user_id']);
 		if($data['pro']['int_client_id']!="")
 		{
@@ -19,7 +20,7 @@ class Profile extends CI_Controller{
 		$data['load_page']='profile';
 		$this->load->view('client/view_page',$data);
 		}		
-}
+            }
 
  function update_client_detail(){
 		
@@ -30,24 +31,25 @@ class Profile extends CI_Controller{
    // $this->form_validation->set_rules('txt_client_email', 'Client Email', 'required');
 	//$this->form_validation->set_rules('client_phone', 'Client Phone', 'required');
 	//$this->form_validation->set_rules('txt_gender', 'Client Gender', 'required');
-	$this->form_validation->set_rules('txt_address', 'Client Addess', 'required');
-    $this->form_validation->set_rules('txt_gender', 'Number Of Member', 'required');
-    $this->form_validation->set_error_delimiters("<p class='text-danger'>","</p>");
+	//$this->form_validation->set_rules('txt_address', 'Client Addess', 'required');
+   // $this->form_validation->set_rules('txt_gender', 'Number Of Member', 'required');
+    //$this->form_validation->set_error_delimiters("<p class='text-danger'>","</p>");
    
-    if ($this->form_validation->run() == TRUE)
-                {
+    if ($this->form_validation->run() != TRUE)
+         {
+        //echo "controller";exit;
 					
-							$this->Profile_Model->update_client_detail($this->user[0]['int_user_id']);	
-							echo 'del';
+            $this->Profile_Model->update_client_detail($this->user[0]['int_user_id']);	
+            echo 'del';
 					//die();
                 	
 					//redirect('/Client/list_clients','refersh');
 
-               }
-                else
-                {
-                    echo 'not updated';
-                }
+        }
+     else
+        {
+            echo 'not updated';
+        }
 
 }
    

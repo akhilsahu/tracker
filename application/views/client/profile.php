@@ -112,7 +112,7 @@
 													}
 												?> 
 												<div class="form-group">
-	                                                <label class="col-md-2 control-label">Plan Logo</label>
+	                                                <label class="col-md-2 control-label">Client Logo</label>
 	                                                <div class="col-md-7">
 	                                                    <input type="file" id="fileUpload" class="form-control" value="" name="txt_logo"><br/>
 	                                                    <div id="image-holder">
@@ -135,7 +135,8 @@
             reader.onload = function (e) {
                 $("<img />", {
                     "src": e.target.result,
-                    "class": "thumb-image"
+                    "class": "thumb-image",
+                    "style":"height:150px;width:150px"
                 }).appendTo(image_holder);
 
             }

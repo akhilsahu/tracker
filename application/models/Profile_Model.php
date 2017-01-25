@@ -14,7 +14,7 @@
   }
   
     public function update_client_detail($int_user_id){
-		
+        //echo 'model';exit;
   	  $target_dir = "upload/client/";
 	  $target_file = $target_dir . basename($_FILES["txt_logo"]["name"]);
 	  	  $uploadOk = 1;
@@ -32,6 +32,7 @@
 				   'txt_gender' => $this->input->post('txt_gender'),
 				   'txt_client_logo'=>$target_file);
 				   $this->db->where('int_client_id',$int_user_id);
+                                   //print_r($data);exit;
     return $this->db->update("tab_client_details",$data);
 	}
 	else
