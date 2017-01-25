@@ -17,7 +17,7 @@
 		
   	  $target_dir = "upload/client/";
 	  $target_file = $target_dir . basename($_FILES["txt_logo"]["name"]);
-	  	  $uploadOk = 1;
+	  $uploadOk = 1;
 	  $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
 	  //print_r($imageFileType);exit;
 
@@ -32,7 +32,7 @@
 				   'txt_gender' => $this->input->post('txt_gender'),
 				   'txt_client_logo'=>$target_file);
 				   $this->db->where('int_client_id',$int_user_id);
-    return $this->db->update("tab_client_details",$data);
+                                    return $this->db->update("tab_client_details",$data);
 	}
 	else
 	{$data = array(

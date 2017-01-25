@@ -5,8 +5,8 @@
         <meta name="author" content="Coderthemes">
 
         <link rel="shortcut icon" href="assets/images/favicon_1.ico">
-
-        <title>SAAYA|Admin Panel</title>
+ 
+        <title>SAAYA | Client Dashboard</title>
 
         <!--Morris Chart CSS -->
 	<link rel="stylesheet" href="<?php echo base_url();?>/assets/plugins/morris/morris.css">

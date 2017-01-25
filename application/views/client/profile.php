@@ -14,14 +14,13 @@
 										Most common form control, text-based input fields. Includes support for all HTML5 types: <code>text</code>, <code>password</code>, <code>datetime</code>, <code>datetime-local</code>, <code>date</code>, <code>month</code>, <code>time</code>, <code>week</code>, <code>number</code>, <code>email</code>, <code>url</code>, <code>search</code>, <code>tel</code>, and <code>color</code>.
 									</p> -->
                         			<div class="row">
-                        				<div class="col-md-12">
-                        					<form class="form-horizontal" role="form" action="<?php echo site_url('Profile/update_client_detail')?>" method="post" enctype="multipart/form-data">                                    
-	                                            <div class="form-group"> 
-												
-	                                                <label class="col-md-2 control-label">Client Name</label>
+                        			 <div class="col-md-12">
+                                                    <form class="form-horizontal" role="form" action="<?php echo site_url('Profile/update_client_detail')?>" method="post" enctype="multipart/form-data">                                    
+                                                     <div class="form-group"> 
+                                                         <label class="col-md-2 control-label">Client Name</label>
 	                                                <div class="col-md-7">
-													  <input type="hidden" class="form-control" value="<?php echo $pro['int_client_id'];?>" name="cli_id" readonly>
-													  <input type="hidden" class="form-control" value="<?php echo $detail['int_client_id'];?>" name="clie_id" readonly>
+								<input type="hidden" class="form-control" value="<?php echo $pro['int_client_id'];?>" name="cli_id" readonly>
+								<input type="hidden" class="form-control" value="<?php echo $detail['int_client_id'];?>" name="clie_id" readonly>
 	                                                    <input type="text" class="form-control" value="<?php echo $pro['txt_client_name'];?>" name="client_name" readonly>
 	                                                </div>
 	                                                <div class="col-md-3">
