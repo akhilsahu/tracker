@@ -10,8 +10,6 @@
     public function update_password($new,$int_user_id){
      $data = array('txt_password' => $new);
                    $this->db->where('int_user_id',$int_user_id);
-                  // print_r($data);exit;
 		   return $this->db->update("tab_users",$data);   
     }
-}
-?>
+}?>

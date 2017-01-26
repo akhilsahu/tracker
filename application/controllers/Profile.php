@@ -25,31 +25,30 @@ class Profile extends CI_Controller{
  function update_client_detail(){
 		
 	$this->load->library('form_validation');
-
-   //$this->form_validation->set_rules('client_name', 'Client Name', 'required');
-    //$this->form_validation->set_rules('plan_of_client', 'Plan Of Client', 'required');
-   // $this->form_validation->set_rules('txt_client_email', 'Client Email', 'required');
+        //$this->form_validation->set_rules('client_name', 'Client Name', 'required');
+        //$this->form_validation->set_rules('plan_of_client', 'Plan Of Client', 'required');
+        // $this->form_validation->set_rules('txt_client_email', 'Client Email', 'required');
 	//$this->form_validation->set_rules('client_phone', 'Client Phone', 'required');
 	//$this->form_validation->set_rules('txt_gender', 'Client Gender', 'required');
-	//$this->form_validation->set_rules('txt_address', 'Client Addess', 'required');
-   // $this->form_validation->set_rules('txt_gender', 'Number Of Member', 'required');
-    //$this->form_validation->set_error_delimiters("<p class='text-danger'>","</p>");
-   
-    if ($this->form_validation->run() != TRUE)
-         {
-        //echo "controller";exit;
-					
-            $this->Profile_Model->update_client_detail($this->user[0]['int_user_id']);	
-            echo 'del';
-					//die();
-                	
-					//redirect('/Client/list_clients','refersh');
-
-        }
-     else
-        {
-            echo 'not updated';
-        }
+	$this->form_validation->set_rules('txt_address', 'Client Addess', 'required');
+        $this->form_validation->set_rules('txt_gender', 'Number Of Member', 'required');
+        $this->form_validation->set_error_delimiters("<p class='text-danger'>","</p>");
+        if ($this->form_validation->run() == TRUE)
+               {			
+                  $executed=$this->Profile_Model->update_client_detail($this->user[0]['int_user_id']);
+                  if($executed)
+                  {
+                    echo 'Successfully Updated'; 
+                  }
+                  else
+                  {
+                        echo 'Not Updated';
+                  }
+               }
+                else
+                {
+                    echo 'Validation failed';
+                }
 
 }
    

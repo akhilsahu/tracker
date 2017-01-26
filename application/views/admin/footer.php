@@ -21,22 +21,10 @@
         <script src="<?php echo base_url();?>assets/js/jquery.nicescroll.js"></script>
         <script src="<?php echo base_url();?>assets/js/jquery.scrollTo.min.js"></script>
 
-        <script src="<?php echo base_url();?>assets/plugins/peity/jquery.peity.min.js"></script>
-
-        <!-- jQuery  -->
-        <script src="<?php echo base_url();?>assets/plugins/waypoints/lib/jquery.waypoints.js"></script>
-        <script src="<?php echo base_url();?>assets/plugins/counterup/jquery.counterup.min.js"></script>
-
-
-
-        <script src="<?php echo base_url();?>assets/plugins/raphael/raphael-min.js"></script>
-
-        <script src="<?php echo base_url();?>assets/plugins/jquery-knob/jquery.knob.js"></script>
-
         
         <script src="<?php echo base_url();?>assets/js/jquery.core.js"></script>
         <script src="<?php echo base_url();?>assets/js/jquery.app.js"></script>
-        <script src="<?php echo base_url();?>assets/jquery-2.2.4.min.js"></script>
+       
         <script type="text/javascript">
             jQuery(document).ready(function($) {
                 $('.counter').counterUp({
@@ -61,14 +49,7 @@
             reader.readAsDataURL(input.files[0]);
         }
     }
-   $(document).ready(function(){
-     $('#submit12').click(function(){
-         alert("hi");/*
-        if ($('#old').val() == ""){
-            alert('Please complete the field');
-        }*/
-      });
-    });
+  
         </script>
 
 

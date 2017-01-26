@@ -6,7 +6,7 @@
 
         <link rel="shortcut icon" href="<?php echo base_url();?>assets/images/favicon_1.ico">
 
-        <title>Saaya</title>
+        <title>Saaya|Admin Panel</title>
 
         <!--Morris Chart CSS -->
 	<link rel="stylesheet" href="<?php echo base_url();?>assets/plugins/morris/morris.css">
@@ -32,6 +32,82 @@
         <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
         
+        
+        <script>     
+    $("document").ready(function(){
+	$("#btnchange").click(function(){
+		if($("#old").val()=="")
+		{
+			alert("please enter old password");
+			
+			$("#Loginid").focus();
+			return false;
+		}
+		if($("#new").val()=="")
+		{
+			alert("please enter new password");
+			$("#Password").focus();
+			return false;
+		}
+		if($("#confirm").val()=="")
+		{
+			alert("please enter confirm new password");
+			$("#Password").focus();
+			return false;
+		}
+               var q=$("#new").val();
+               var r=$("#confirm").val();
+                if(q != r)
+                {
+                                alert("new and confirm password do not match");
+                                $("#Password").focus();
+                                return false;
+                }
+                 if(q == r)
+                 {
+                                    $.ajax({
+					type:'POST',
+					url:"<?php echo site_url(); ?>"+"/Change_password/change",
+					data:{
+						'new_pass':$("#new").val(),
+                                                'old_pass':$("#old").val(),
+                                                'confirm_pass':$("#confirm").val()
+					},
+						 
+					success: function(res)
+					{
+						if(res)
+						{ 
+							alert(res);
+                                                        $("#old").val('');
+                                                        $("#new").val('');
+                                                        $("#confirm").val('');
+						}
+						else
+						{
+							alert("failed to update");
+						}
+					  },
+					 
+					error: function(res)
+					{
+						alert("failure");
+					},
+				});
+                }
+                
+	});
+});
+</script>
+        
+     <style>
+.available{
+	color:#0f0;
+}
+.unavailable{
+	color:#f00;
+}
+</style>   
     </head>
 <body class="fixed-left">
 
@@ -94,19 +170,20 @@
           <center>  <h4 class="modal-title"><a href="#"><span>Change Password</span></a></h4></center>
         </div>
         <div class="modal-body">
-          <form class="form-horizontal" role="form" action="<?php //echo site_url('Member/assign')?>" method="post"> 
+          <form class="form-horizontal" method="post" id="yourFormId"> 
               <input  type="hidden" name="member_id" value="<?php //echo $member_list[0]['int_member_id'];?>"/>
                                                         <div class="form-group"> 
-							<label class="col-md-2 control-label">Old Password </label>
+							<label class="col-md-3 control-label">Old Password </label>
 	                                                <div class="col-md-7">
 	                                                    <input type="text" class="form-control" name="old" id="old">
+                                                            <span id="message"></span>
 	                                                </div>
-	                                                <div class="col-md-3">
+	                                                <div class="col-md-3"> 
 	                                                <?php echo form_error('old');?>
 	                                                </div>
 	                                            </div>
 	                                             <div class="form-group">
-	                                                <label class="col-sm-2 control-label">New Password</label>
+	                                                <label class="col-sm-3 control-label">New Password</label>
 	                                                <div class="col-md-7">
                                                           <input type="text" class="form-control" name="new" id="new"> 
 	                                                </div>
@@ -116,7 +193,7 @@
 													
 	                                            </div>
                                                     <div class="form-group"> 
-							<label class="col-md-2 control-label">Confirm New Password </label>
+							<label class="col-md-3 control-label">Confirm New Password </label>
 	                                                <div class="col-md-7">
 	                                                    <input type="text" class="form-control" name="confirm_new" id="confirm">
 	                                                </div>
@@ -128,7 +205,8 @@
 												
 	                                             <div class="form-group">
                                                  <div class="col-lg-10 col-lg-offset-2">
-                                                      <input type="button" class="btn btn-primary" id="submit12" Value="Submit"> 
+                                                     <input type="button" id="btnchange" Value="Change" name="Change" class="btn btn-primary" onClick="return(validate());">
+                                                     
                                                  <button type="reset" class="btn btn-default">Cancel</button>
                                                 
                                                  </div>
@@ -137,6 +215,7 @@
 	     
 	                           
 	                                        </form>
+             
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

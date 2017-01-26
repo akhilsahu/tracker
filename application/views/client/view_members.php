@@ -89,7 +89,7 @@
                                                         <div class="form-group"> 
 							<label class="col-md-2 control-label">Member Name </label>
 	                                                <div class="col-md-7">
-	                                                    <input type="text" class="form-control" value="<?php echo $member_list[0]['txt_name']; ?>" name="member_name">
+                                                            <input type="text" class="form-control" value="<?php echo $member_list[0]['txt_name']; ?>" name="member_name" readonly="readonly">
 	                                                </div>
 	                                                <div class="col-md-3">
 	                                                <?php echo form_error('member_name');?>

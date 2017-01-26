@@ -44,13 +44,13 @@
 	                                            	<div class="col-md-3">
 	                                                <?php echo form_error('txt_owner');?>
 	                                                </div>
-	                                            </div>  
-												  <div class="form-group">
+	                                            </div>    
+					     <div class="form-group">
 	                                             <label class="col-md-2 control-label">Date</label>
-												        <div class='col-md-7'>
-												            <div class="form-group">
-												                <div class='input-group date'>	
-												                    <input type='text' class="form-control" id="datepicker" name="date" />
+                                                       <div class='col-md-7'>
+							 <div class="form-group">
+									  <div class='input-group date'>	
+								<input type='text' class="form-control" id="datepicker" name="date" />
 												                    <span class="input-group-addon">
 												                        <span class="glyphicon glyphicon-calendar"></span>
 												                    </span>
@@ -61,11 +61,11 @@
 			                                                <?php echo form_error('date');?>
 			                                            </div>
 												        <script>
-												  $( function() {
-												    $( "#datepicker" ).datepicker();
-												  } );
-												  </script>
-												    </div>
+                                				  $( function() {
+								 $( "#datepicker" ).datepicker();
+								  } );
+                                                             </script>
+						 </div>
 												
 	                                             <div class="form-group">
                                                  <div class="col-lg-10 col-lg-offset-2">

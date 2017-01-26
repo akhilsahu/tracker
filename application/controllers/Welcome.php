@@ -34,7 +34,6 @@ class Welcome extends CI_Controller {
    $password = $this->input->post('password');
    $this->load->model('Login_Model');
    $valid_login = $this->Login_Model->login_valid($username,$password);
-   //print_r($valid_login[0]['int_group_id']);exit;
    if($valid_login[0]['int_group_id']==1)
    {
 		$this->session->set_userdata('user',$valid_login);
@@ -51,14 +50,5 @@ class Welcome extends CI_Controller {
 	   $this->load->view('user_login');
    }
 
-	}
-      /* public function profile()
-    {
-           $user= $this->session->userdata('user');
-           // print_r($user);exit;
-        $this->load->model('login_model');
-        $record["load_page"]='profile';
-       $record['user']= $this->login_model->record($user);
-       $this->load->view('admin/view_page',$record);
-    }*/
+   }
 }

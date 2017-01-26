@@ -12,6 +12,7 @@ class Change_password extends CI_Controller{
     $this->load->library('form_validation');
     $old=$this->input->post('old_pass');
     $new=$this->input->post('new_pass');
+    $confirm=$this->input->post('confirm_pass');
     $this->form_validation->set_rules('old_pass', 'Old Password', 'required');
     $this->form_validation->set_rules('new_pass', 'New Password', 'required');
     $this->form_validation->set_rules('confirm_pass', 'Old Password Number', 'required');
@@ -41,7 +42,8 @@ class Change_password extends CI_Controller{
                 else
                 {
                      echo 'validation fail';
-                }   
+                }
     }
 }
+
 ?>

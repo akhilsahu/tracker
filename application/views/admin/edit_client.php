@@ -123,7 +123,7 @@
 	                                                <label class="col-md-2 control-label">Gender</label>
 	                                                <div class="col-md-7">
 													<select class="form-control" name="txt_gender">
-													<option>Select</option>
+													<option value="">Select</option>
 													<option Value="Male" selected>Male</option>
 													<option Value="Female">Female</option>
 	                                                </select>
@@ -139,7 +139,7 @@
 	                                                <label class="col-md-2 control-label">Gender</label>
 	                                                <div class="col-md-7">
 													<select class="form-control" name="txt_gender">
-													<option>Select</option>
+													<option value="">Select</option>
 													<option Value="Male" >Male</option>
 													<option Value="Female" selected>Female</option>
 	                                                    </select>
@@ -158,7 +158,7 @@
 	                                                <label class="col-md-2 control-label">Gender</label>
 	                                                <div class="col-md-7">
 													<select class="form-control" name="txt_gender">
-													<option>Select</option>
+													<option value="">Select</option>
 													<option Value="Male" >Male</option>
 													<option Value="Female">Female</option>
 	                                                </select>
@@ -172,7 +172,7 @@
 													}
 												?> 
 												<div class="form-group">
-	                                                <label class="col-md-2 control-label">Plan Logo</label>
+	                                                <label class="col-md-2 control-label">Client Logo</label>
 	                                                <div class="col-md-7">
 	                                                    <input type="file" id="fileUpload" class="form-control" name="txt_logo" ><br/>
 	                                                    <div id="image-holder">

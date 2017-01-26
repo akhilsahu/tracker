@@ -10,7 +10,7 @@
 									</p> -->
                         			<div class="row">
                         				<div class="col-md-12">
-                        					<form class="form-horizontal" role="form" action="<?php echo site_url('Client/insert_client')?>" method="post" enctype="multipart/form-data">                                    
+                        					<form class="form-horizontal" action="<?php echo site_url('Client/insert_client')?>" method="post" enctype="multipart/form-data">                                    
 	                                            <div class="form-group"> <div class="form-group">
 	                                                <label class="col-sm-2 control-label">Type</label>
 	                                                <div class="col-sm-7">
@@ -93,66 +93,26 @@
 	                                            <div class="form-group">
 	                                                <label class="col-md-2 control-label">Gender</label>
 	                                                <div class="col-md-7">
-													<select class="form-control" name="txt_gender">
-													<option>Select</option>
-													<option Value="Male">Male</option>
-													<option Value="Female">Female</option>
+							<select class="form-control" name="txt_gender">
+								<option Value="">Select</option>
+								<option Value="Male">Male</option>
+								<option Value="Female">Female</option>
 	                                                </select>
 	                                                </div>
 	                                            	<div class="col-md-3">
-	                                                <?php //echo form_error('txt_gender');?>
+	                                                
 	                                                </div>
 	                                            </div>  
-												<?php 
-													//}else if($detail['txt_gender']=='Female'){
-												?>
-												 <!--<div class="form-group">
-	                                                <label class="col-md-2 control-label">Gender</label>
-	                                                <div class="col-md-7">
-													<select class="form-control" name="txt_gender">
-													<option>Select</option>
-													<option Value="Male" >Male</option>
-													<option Value="Female" selected>Female</option>
-	                                                    </select>
-	                                                </select>
-	                                                </div>
-	                                            	<div class="col-md-3">
-	                                                <?php// echo form_error('txt_gender');?>
-	                                                </div>
-	                                            </div>  
-												<?php 
-													//}else{
-														
-													
-												?>
-												<div class="form-group">
-	                                                <label class="col-md-2 control-label">Gender</label>
-	                                                <div class="col-md-7">
-													<select class="form-control" name="txt_gender">
-													<option>Select</option>
-													<option Value="Male" >Male</option>
-													<option Value="Female">Female</option>
-	                                                </select>
-	                                                </select>
-	                                                </div>
-	                                            	<div class="col-md-3">
-	                                                <?php //echo form_error('txt_gender');?>
-	                                                </div>
-	                                            </div> -->
-												<?php 
-													//}
-												?> 
-												<div class="form-group">
-	                                                <label class="col-md-2 control-label">Plan Logo</label>
+												
+                                                                    <div class="form-group">
+	                                                <label class="col-md-2 control-label">Client Logo</label>
 	                                                <div class="col-md-7">
 	                                                    <input type="file" id="fileUpload" class="form-control" value="" name="txt_logo"><br/>
 	                                                    <div id="image-holder">
                                                             <img/>
                                                        </div>
 	                                                </div>
-	                                            	<!--<div class="col-md-3">
-	                                                
-	                                                </div>-->
+	                                            	
 													<script>
 												 
 		 $("#fileUpload").on('change', function () {
@@ -194,8 +154,9 @@
 												        <div class="col-md-3">
 			                                                <?php echo form_error('date');?>
 			                                            </div>
-												        <script>
+     <script>
 												  $( function() {
+                                                                                                      alert();
 												    $( "#datepicker" ).datepicker();
 												  } );
 												  </script>
