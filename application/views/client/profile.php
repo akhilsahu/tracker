@@ -20,7 +20,7 @@
                                                          <label class="col-md-2 control-label">Client Name</label>
 	                                                <div class="col-md-7">
 								<input type="hidden" class="form-control" value="<?php echo $pro['int_client_id'];?>" name="cli_id" readonly>
-								<input type="hidden" class="form-control" value="<?php echo $detail['int_client_id'];?>" name="clie_id" readonly>
+								<!--<input type="hidden" class="form-control" value="<?php //echo $detail['int_client_id'];?>" name="clie_id" readonly>-->
 	                                                    <input type="text" class="form-control" value="<?php echo $pro['txt_client_name'];?>" name="client_name" readonly>
 	                                                </div>
 	                                                <div class="col-md-3">
@@ -48,7 +48,7 @@
 	                                             <div class="form-group">
 	                                                <label class="col-sm-2 control-label">Client Address</label>
 	                                                <div class="col-md-7">
-	                                                    <input type="text" class="form-control" value="<?php echo $detail['txt_client_address'];?>" name="txt_address" >
+	                                                    <input type="text" class="form-control" value="<?php echo $pro['txt_client_address'];?>" name="txt_address" >
 	                                                </div>
 	                                              <div class="col-md-3">
 	                                                <?php echo form_error('txt_address');?>
@@ -56,7 +56,7 @@
 													
 	                                            </div>
 												<?php 
-												if($detail['txt_gender']=='Male'){
+												if($pro['txt_gender']=='Male'){
 												?>
 	                                            <div class="form-group">
 	                                                <label class="col-md-2 control-label">Gender</label>
@@ -72,7 +72,7 @@
 	                                                </div>
 	                                            </div>  
 												<?php 
-													}else if($detail['txt_gender']=='Female'){
+													}else if($pro['txt_gender']=='Female'){
 												?>
 												 <div class="form-group">
 	                                                <label class="col-md-2 control-label">Gender</label>
@@ -114,9 +114,15 @@
 	                                                <label class="col-md-2 control-label">Client Logo</label>
 	                                                <div class="col-md-7">
 	                                                    <input type="file" id="fileUpload" class="form-control" value="" name="txt_logo"><br/>
+                                                            <?php if($pro['txt_client_logo']!=''){?>
 	                                                    <div id="image-holder">
-                                                            <img/>
+                                                            <img src="<?php echo base_url().$pro['txt_client_logo']?>"/>
                                                        </div>
+                                                            <?php }else { ?>
+                                                             <div id="image-holder">
+                                                            <img />
+                                                       </div>
+                                                                <?php } ?>
 	                                                </div>
 	                                            	<div class="col-md-3">
 	                                                

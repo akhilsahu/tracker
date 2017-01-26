@@ -13,13 +13,13 @@ class Profile extends CI_Controller{
     public function edit_profile()
             {
 		$data['pro'] = $this->Profile_Model->get_all_client($this->user[0]['int_user_id']);
-		if($data['pro']['int_client_id']!="")
+		/*if($data['pro']['int_client_id']!="")
 		{
-			$data['detail'] = $this->Profile_Model->get_all_client_detail($data['pro']['int_client_id']);
+			$data['detail'] = $this->Profile_Model->get_all_client_detail($data['pro']['int_client_id']);*/
 		//print_r($this->user[0]['int_user_id']);exit;
 		$data['load_page']='profile';
 		$this->load->view('client/view_page',$data);
-		}		
+		//}		
             }
 
  function update_client_detail(){
@@ -35,7 +35,8 @@ class Profile extends CI_Controller{
         $this->form_validation->set_error_delimiters("<p class='text-danger'>","</p>");
         if ($this->form_validation->run() == TRUE)
                {			
-                  $executed=$this->Profile_Model->update_client_detail($this->user[0]['int_user_id']);
+             $id=$this->input->post('cli_id');
+                  $executed=$this->Profile_Model->update_client_detail($id);
                   if($executed)
                   {
                     echo 'Successfully Updated'; 

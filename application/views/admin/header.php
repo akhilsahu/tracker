@@ -100,15 +100,7 @@
 });
 </script>
         
-     <style>
-.available{
-	color:#0f0;
-}
-.unavailable{
-	color:#f00;
-}
-</style>   
-    </head>
+ </head>
 <body class="fixed-left">
 
         <!-- Begin page -->

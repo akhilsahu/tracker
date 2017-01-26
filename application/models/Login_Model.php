@@ -59,6 +59,7 @@
         'int_group_id' => '2',
         'dt_date' => date('Y-m-d',strtotime($this->input->post('date'))));
 	 $query=$this->db->insert("tab_users",$data1);
+         $abc=$this->db->insert_id();
          /*INSERTING DATA INTO tab_clients */
   	 $data = array(
          'txt_client_name' => $this->input->post('client_name'),
@@ -71,6 +72,7 @@
 	 'txt_client_address'=>$this->input->post('txt_address'),
 	 'txt_gender'=>$this->input->post('txt_gender'),
 	 'txt_client_logo'=>$target_file,
+         'int_user_id'=>$abc,
          'dt_date' => date('Y-m-d',strtotime($this->input->post('date'))));
 	  return $query1=$this->db->insert("tab_clients",$data); 
         } 

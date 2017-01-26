@@ -156,7 +156,7 @@
 			                                            </div>
      <script>
 												  $( function() {
-                                                                                                      alert();
+                                                                                                     // alert();
 												    $( "#datepicker" ).datepicker();
 												  } );
 												  </script>
