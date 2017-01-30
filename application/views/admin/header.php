@@ -144,6 +144,7 @@
                                     <ul class="dropdown-menu">
                                         <li><button type="button" class="btn btn" data-toggle="modal" data-target="#myModal" style="background-color:white;color:black;"><i class="ti-lock m-r-5"></i>Change Password</button></li>
                                         <li><a href="<?php echo site_url().'/Client/logout/';?>"><i class="ti-power-off m-r-5"></i> Logout</a></li>
+                                        <li><a href="<?php echo site_url().'/Client/screenlock/';?>"><i class="ti-lock m-r-5"></i> Lock screen</a></li>
                                     </ul>
                                 </li>
                             </ul>

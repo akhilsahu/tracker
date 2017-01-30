@@ -6,10 +6,10 @@ class Client extends CI_Controller{
         parent::__construct();
         $this->load->model('Login_Model');
         $this->user=$this->session->userdata('user');
-        /*if($this->user['int_user_id']=='')
+        if($this->user[0]['int_user_id']=='')
         {
             redirect('welcome','refresh');
-        }*/
+        }
     }
 
     public function add(){
@@ -109,6 +109,14 @@ public function change_password()
     //echo "change_appp";exit;
     $this->Login_Model->password_change($this->user[0]['int_user_id']);
     redirect('/client/list_clients');
+    
+}
+public function screenlock()
+{ 
+    $this->load->view('screenlock');
+    //echo "change_appp";exit;
+   // $this->Login_Model->password_change($this->user[0]['int_user_id']);
+    //redirect('/client/list_clients');
     
 }
 }
